@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
-
+let
+  nixConfigDir = builtins.toString ./..;
+in
 {
   programs.ranger = {
     enable = true;
@@ -7,12 +9,13 @@
       viewmode = "multipane";
       show_hidden = true;
       line_numbers = "relative";
+      editor = "nvim";
     };
     mappings = {
       v = "shell nvim %s";
       a = "mark_files all=True toggle=True";
       r = "rename_append";
-      gc = "cd ~/.config";
+      gc = "cd ${nixConfigDir}";
     };
     plugins = [
       {

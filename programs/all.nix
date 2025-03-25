@@ -3,6 +3,7 @@
 {
   imports = [
     ./fish.nix
+    ./neovim.nix
     ./ranger.nix
   ];
 

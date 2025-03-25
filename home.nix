@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./hard_files.nix
     ./programs/all.nix
   ];
 
@@ -14,17 +15,8 @@
     openssh
   ];
 
-  home.activation.sshPermissions = ''
-    mkdir -p ~/.ssh
-    chmod 700 ~/.ssh
-
-    if [ ! -f ~/.ssh/github ]; then
-      touch ~/.ssh/github
-      chmod 600 ~/.ssh/github
-    fi
-  '';
-
   home.sessionVariables = {
+    TZ = "Asia/Almaty";
     EDITOR = "nvim";
   };
 

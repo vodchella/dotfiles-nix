@@ -24,5 +24,6 @@
     "cd.." = "cd ..";
     r ="ranger --choosedir=$HOME/.config/ranger/.rangerdir; cd (cat $HOME/.config/ranger/.rangerdir)";
     v="nvim";
+    z="zellij";
   };
 }

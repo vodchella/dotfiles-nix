@@ -9,7 +9,6 @@ in
       viewmode = "multipane";
       show_hidden = true;
       line_numbers = "relative";
-      editor = "nvim";
     };
     mappings = {
       v = "shell nvim %s";

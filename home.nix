@@ -12,12 +12,14 @@
 
   home.packages = with pkgs; [
     gcc
+    most
     openssh
   ];
 
   home.sessionVariables = {
     TZ = "Asia/Almaty";
     EDITOR = "nvim";
+    PAGER = "most";
   };
 
   home.shellAliases = {

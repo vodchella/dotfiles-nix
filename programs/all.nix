@@ -3,6 +3,7 @@
 {
   imports = [
     ./fish.nix
+    ./ranger.nix
   ];
 
   programs = {

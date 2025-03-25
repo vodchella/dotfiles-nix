@@ -44,6 +44,7 @@
 
       if not ssh-add -l | grep -q github
           ssh-add ~/.ssh/github >/dev/null 2>&1
+          ssh-add ~/.ssh/vpn-srv >/dev/null 2>&1
       end
     '';
   };

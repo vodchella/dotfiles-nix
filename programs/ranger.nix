@@ -15,6 +15,7 @@ in
       a = "mark_files all=True toggle=True";
       r = "rename_append";
       gc = "cd ${nixConfigDir}";
+      gp = "cd ~/projects";
     };
     plugins = [
       {

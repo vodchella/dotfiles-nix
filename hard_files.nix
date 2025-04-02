@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  home.activation.emptySshKeys = ''
+  home.activation.emptySshKeys = /*bash*/ ''
     mkdir -p ~/.ssh
     chmod 700 ~/.ssh
 

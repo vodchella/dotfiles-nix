@@ -21,7 +21,8 @@
         echo "Skipping checkPhase"
       '';
     });
-    shellInit = ''
+
+    shellInit = /*fish*/ ''
       set -gx fish_greeting 'Hello, Max!'
       set -gx LANG en_US.UTF-8
       set -gx LC_ALL en_US.UTF-8
@@ -35,7 +36,8 @@
           source /nix/var/nix/profiles/default/etc/profile.d/nix.sh
       end
     '';
-    interactiveShellInit = ''
+
+    interactiveShellInit = /*fish*/ ''
       set -gx PATH $PATH $HOME/.nix-profile/bin /run/current-system/sw/bin /nix/var/nix/profiles/default/bin
 
       if not pgrep -u (id -u) ssh-agent > /dev/null

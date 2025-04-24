@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  home.file.".ideavimrc" = {
+    source = ./configs/.ideavimrc;
+  };
+
   home.activation.emptySshKeys = /*bash*/ ''
     mkdir -p ~/.ssh
     chmod 700 ~/.ssh

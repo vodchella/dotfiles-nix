@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./hard_files.nix
+    ./files.nix
     ./programs/all.nix
   ];
 

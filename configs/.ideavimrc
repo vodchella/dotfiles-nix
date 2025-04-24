@@ -1,0 +1,34 @@
+let mapleader = " "
+
+
+" Copy to system clipboard as well
+set clipboard+=unnamed
+
+set number
+set relativenumber
+
+set hlsearch
+set incsearch
+
+
+" Emulated Plugins
+set highlightedyank
+set easymotion
+
+
+let g:highlightedyank_highlight_duration = "1000"
+
+
+vnoremap > >gv
+vnoremap < <gv
+
+vmap <S-Up>   :action MoveLineUp<cr>
+vmap <S-Down> :action MoveLineDown<cr>
+
+map f  <Plug>(easymotion-s)<ESC>
+map F  <Plug>(easymotion-bd-w)<ESC>
+
+" Navigation
+nmap <leader>g :action GotoDeclaration<cr>
+nmap <leader>u :action FindUsages<cr>
+nmap <leader>i :action GotoImplementation<cr>

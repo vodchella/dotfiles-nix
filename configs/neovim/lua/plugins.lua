@@ -27,6 +27,14 @@ return require('packer').startup(function(use)
 
     -- Highlighting
     use 'nvim-treesitter/nvim-treesitter'
+    use({
+        'MeanderingProgrammer/render-markdown.nvim',
+        after = { 'nvim-treesitter' },
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+        config = function()
+            require('render-markdown').setup({})
+        end,
+    })
 
     -- Widgets
     use 'nvim-lualine/lualine.nvim'

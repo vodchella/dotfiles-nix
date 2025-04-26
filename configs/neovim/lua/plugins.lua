@@ -39,6 +39,15 @@ return require('packer').startup(function(use)
     -- Widgets
     use 'nvim-lualine/lualine.nvim'
 
+    -- Vim
+    use {
+        'lewis6991/gitsigns.nvim',
+        requires = { 'nvim-lua/plenary.nvim' },
+        config = function()
+          require('gitsigns').setup()
+        end
+    }
+
     -- Other
     use 'junegunn/fzf'
     use 'junegunn/fzf.vim'

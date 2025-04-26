@@ -35,6 +35,8 @@
       if test -e /nix/var/nix/profiles/default/etc/profile.d/nix.sh
           source /nix/var/nix/profiles/default/etc/profile.d/nix.sh
       end
+
+      bind \cf fzf-file-widget
     '';
 
     interactiveShellInit = /*fish*/ ''

@@ -3,7 +3,7 @@ local opts = { noremap = true, silent = true }
 
 -- Terminal
 map('n', '<C-t>', ':terminal<CR>', opts)
-map('t', '<C-t>', [[<C-\><C-n>]], opts)
+map('t', '<C-i>', [[<C-\><C-n>]], opts)
 
 -- FZF
 map('n', '<C-l>', ':Lines<CR>', opts)

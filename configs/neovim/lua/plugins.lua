@@ -60,6 +60,15 @@ return require('packer').startup(function(use)
     use 'junegunn/fzf'
     use 'junegunn/fzf.vim'
 
+    use {
+        'vodchella/hodur.nvim',
+        config = function()
+            require('hodur').setup({
+                key = "<C-g>"
+            })
+        end
+    }
+
     if packer_bootstrap then
       require('packer').sync()
     end

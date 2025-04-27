@@ -10,6 +10,3 @@ map('n', '<C-l>', ':Lines<CR>', opts)
 map('n', '<C-m>', ':Marks<CR>', opts)
 map('n', '<C-f>', ':Files<CR>', opts)
 map('n', '<C-b>', ':Buffers<CR>', opts)
-
-local open_file = require('open_file')
-map('n', '<C-g>', open_file.open_file_under_cursor, opts)

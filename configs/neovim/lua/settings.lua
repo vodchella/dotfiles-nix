@@ -36,5 +36,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
     pattern = "*",
     callback = function()
         vim.cmd("startinsert")
+        vim.opt_local.relativenumber = true
     end,
 })

@@ -26,10 +26,10 @@ if ! command_exists home-manager; then
     nix-shell '<home-manager>' -A install
 fi
 
-# Проверка: если директория уже существует, останавливаемся
+# Проверка: если директория уже существует, то удаляем её
 if [[ -d "$TARGET_DIR" ]]; then
-    echo "Directory $TARGET_DIR already exists. Aborting."
-    exit 1
+    echo "Directory $TARGET_DIR already exists. Removing..."
+    rm -rf "$TARGET_DIR"
 fi
 
 # Функция клонирования репозитория и переключения

@@ -4,6 +4,7 @@
   imports = [
     ./aliases.nix
     ./files.nix
+    ./fonts.nix
     ./programs/all.nix
   ];
 
@@ -12,6 +13,7 @@
   home.stateVersion = "24.11";
 
   home.packages = with pkgs; [
+    fontconfig
     gcc
     most
     openssh

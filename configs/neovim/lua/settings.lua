@@ -39,11 +39,3 @@ vim.api.nvim_create_autocmd("TermOpen", {
         vim.opt_local.relativenumber = true
     end,
 })
-
-vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    if vim.fn.argc() == 0 and vim.fn.line2byte('$') == -1 then
-      vim.cmd("intro")
-    end
-  end,
-})

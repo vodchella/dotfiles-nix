@@ -12,13 +12,6 @@
   home.homeDirectory = builtins.getEnv "HOME";
   home.stateVersion = "24.11";
 
-  home.packages = with pkgs; [
-    fontconfig
-    gcc
-    most
-    openssh
-  ];
-
   home.sessionVariables = {
     TZ = "Asia/Almaty";
     EDITOR = "nvim";

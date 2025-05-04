@@ -13,6 +13,14 @@
     ./zoxide.nix
   ];
 
+  home.packages = with pkgs; [
+    atac
+    fontconfig
+    gcc
+    most
+    openssh
+  ];
+
   programs = {
     home-manager.enable = true;
     ssh.enable = true;

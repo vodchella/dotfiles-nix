@@ -46,7 +46,7 @@ in
       set -g status-left "#[fg=green] #H "
 
       # Правая часть: дата и время
-      set -g status-right "#[fg=yellow]%Y-%m-%d #[fg=cyan]%H:%M "
+      set -g status-right "#[fg=yellow]%F #[fg=cyan]#(date +%%H:%%M) "
 
       # Обычные (неактивные) окна: белый текст, серый фон
       set -g window-status-format "#[fg=white,bg=black] #I:#W "

@@ -1,6 +1,10 @@
-{ config, pkgs, ... }:
-
+{ config, pkgs, ... } @ args:
+let
+  configDir = builtins.toString ./.;
+in
 {
+  _module.args.configDir = configDir;
+
   imports = [
     ./aliases.nix
     ./files.nix

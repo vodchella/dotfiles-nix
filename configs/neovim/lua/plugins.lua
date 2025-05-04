@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
 
     -- Text editing
     use 'jiangmiao/auto-pairs'
+    use 'mg979/vim-visual-multi'
 
     -- Look and feel
     use 'machakann/vim-highlightedyank'

@@ -48,14 +48,14 @@ return require('packer').startup(function(use)
         end
     }
 
-    -- Vim
-    use {
-        'lewis6991/gitsigns.nvim',
-        requires = { 'nvim-lua/plenary.nvim' },
-        config = function()
-          require('gitsigns').setup()
-        end
-    }
+    -- Git
+    -- use {
+    --     'lewis6991/gitsigns.nvim',
+    --     requires = { 'nvim-lua/plenary.nvim' },
+    --     config = function()
+    --       require('gitsigns').setup()
+    --     end
+    -- }
 
     -- Other
     use 'junegunn/fzf'

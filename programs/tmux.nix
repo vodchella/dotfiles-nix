@@ -38,27 +38,27 @@ in
       set -g prefix C-a
       bind C-a send-prefix
 
+      set  -g base-index 1
+      setw -g pane-base-index 1
+
       # Общий стиль статусбара
       set -g status-position top
       set -g status-style bg=black,fg=white
 
       # Левая часть: hostname зелёным
-      set -g status-left "#[fg=green] #H "
+      # set -g status-left "#[fg=green] #H "
 
       # Правая часть: дата и время
       set -g status-right "#[fg=yellow]%F #[fg=cyan]#(date +%%H:%%M) "
 
       # Обычные (неактивные) окна: белый текст, серый фон
       set -g window-status-format "#[fg=white,bg=black] #I:#W "
-
       # Активное окно: жёлтый фон, чёрный текст
       set -g window-status-current-format "#[fg=black,bg=yellow] #I:#W "
-
       # Разделитель между окнами
       set -g window-status-separator " "
 
-      # Удалить квадратные скобки вокруг окон (если были)
-      set -g status-justify centre
+      set -g status-justify left
 
       ### Быстрые клавиши переключения окон
       bind -n M-1 select-window -t 1

@@ -18,3 +18,9 @@ map('v', '<C-_>', function()
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<ESC>', true, false, true), 'nx', false)
   require('Comment.api').toggle.linewise(vim.fn.visualmode())
 end, opts)
+
+-- Selected text moving
+map('v', '>', '>gv', opts)
+map('v', '<', '<gv', opts)
+map('v', '<S-Up>', ':m \'<-2<CR>gv=gv', opts)
+map('v', '<S-Down>', ':m \'>+1<CR>gv=gv', opts)

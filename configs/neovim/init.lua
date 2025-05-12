@@ -1,3 +1,4 @@
+require('cmp-conf')
 require("mappings")
 require("plugins")
 require("settings")

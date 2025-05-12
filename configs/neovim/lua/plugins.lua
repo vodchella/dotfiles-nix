@@ -20,11 +20,20 @@ return require('packer').startup(function(use)
     use 'jiangmiao/auto-pairs'
     use 'mg979/vim-visual-multi'
     use {
-       'numToStr/Comment.nvim',
-       config = function()
-         require('Comment').setup()
-       end
-     }
+        'numToStr/Comment.nvim',
+        config = function()
+          require('Comment').setup()
+        end
+    }
+
+    -- Completions
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-nvim-lua'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'saadparwaiz1/cmp_luasnip'
+    use 'L3MON4D3/LuaSnip'
 
     -- Look and feel
     use 'machakann/vim-highlightedyank'
@@ -53,15 +62,6 @@ return require('packer').startup(function(use)
             require('bufferline').setup({})
         end
     }
-
-    -- Git
-    -- use {
-    --     'lewis6991/gitsigns.nvim',
-    --     requires = { 'nvim-lua/plenary.nvim' },
-    --     config = function()
-    --       require('gitsigns').setup()
-    --     end
-    -- }
 
     -- Other
     use 'junegunn/fzf'

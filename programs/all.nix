@@ -20,6 +20,7 @@
     gcc
     most
     openssh
+    udiskie
   ];
 
   programs = {

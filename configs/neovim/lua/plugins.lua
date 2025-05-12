@@ -19,6 +19,12 @@ return require('packer').startup(function(use)
     -- Text editing
     use 'jiangmiao/auto-pairs'
     use 'mg979/vim-visual-multi'
+    use {
+       'numToStr/Comment.nvim',
+       config = function()
+         require('Comment').setup()
+       end
+     }
 
     -- Look and feel
     use 'machakann/vim-highlightedyank'

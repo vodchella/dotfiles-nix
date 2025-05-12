@@ -10,3 +10,11 @@ map('n', '<C-l>', ':Lines<CR>', opts)
 map('n', '<C-m>', ':Marks<CR>', opts)
 map('n', '<C-f>', ':Files<CR>', opts)
 map('n', '<C-b>', ':Buffers<CR>', opts)
+
+-- Comments
+-- <C-/> обозначается в Lua как <C-_>.
+map('n', '<C-_>', require('Comment.api').toggle.linewise.current, opts)
+map('v', '<C-_>', function()
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<ESC>', true, false, true), 'nx', false)
+  require('Comment.api').toggle.linewise(vim.fn.visualmode())
+end, opts)

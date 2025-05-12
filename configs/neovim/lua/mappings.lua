@@ -13,10 +13,23 @@ map('n', '<C-b>', ':Buffers<CR>', opts)
 
 -- Comments
 -- <C-/> обозначается в Lua как <C-_>.
-map('n', '<C-_>', require('Comment.api').toggle.linewise.current, opts)
+local comment_not_loaded = "Comment.nvim doesn't loadad, PackerSync will save you :)"
+map('n', '<C-_>', function()
+  local ok, api = pcall(require, 'Comment.api')
+  if not ok then
+    vim.notify(comment_not_loaded, vim.log.levels.WARN)
+    return
+  end
+  api.toggle.linewise.current()
+end, opts)
 map('v', '<C-_>', function()
+  local ok, api = pcall(require, 'Comment.api')
+  if not ok then
+    vim.notify(comment_not_loaded, vim.log.levels.WARN)
+    return
+  end
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<ESC>', true, false, true), 'nx', false)
-  require('Comment.api').toggle.linewise(vim.fn.visualmode())
+  api.toggle.linewise(vim.fn.visualmode())
 end, opts)
 
 -- Selected text moving

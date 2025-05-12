@@ -9,6 +9,10 @@
     source = ./configs/compton.conf;
   };
 
+  home.file.".config/udiskie/config.yml" = {
+    source = ./configs/udiskie.yml;
+  };
+
   home.activation.emptySshKeys = /*bash*/ ''
     mkdir -p ~/.ssh
     chmod 700 ~/.ssh

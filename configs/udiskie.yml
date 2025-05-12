@@ -1,0 +1,8 @@
+tray: auto
+menu: nested
+automount: true
+terminal: 'ranger'
+device_config:
+    - device_file: /dev/loop*
+      ignore: true
+

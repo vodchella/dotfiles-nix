@@ -5,6 +5,10 @@
     source = ./configs/.ideavimrc;
   };
 
+  home.file.".config/compton.conf" = {
+    source = ./configs/compton.conf;
+  };
+
   home.activation.emptySshKeys = /*bash*/ ''
     mkdir -p ~/.ssh
     chmod 700 ~/.ssh

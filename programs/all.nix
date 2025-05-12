@@ -15,6 +15,7 @@
   ];
 
   home.packages = with pkgs; [
+    alacritty
     atac
     fontconfig
     gcc

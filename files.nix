@@ -13,6 +13,10 @@
     source = ./configs/udiskie.yml;
   };
 
+  home.file.".config/alacritty/alacritty.toml" = {
+    source = ./configs/alacritty.toml;
+  };
+
   home.activation.emptySshKeys = /*bash*/ ''
     mkdir -p ~/.ssh
     chmod 700 ~/.ssh

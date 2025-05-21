@@ -32,6 +32,16 @@ map('v', '<C-_>', function()
   api.toggle.linewise(vim.fn.visualmode())
 end, opts)
 
+-- Hodur
+map('n', '<C-g>', function()
+  local ok, api = pcall(require, 'hodur')
+  if not ok then
+    vim.notify("Hodur.nvim doesn't loadad, PackerSync will save you :)", vim.log.levels.WARN)
+    return
+  end
+  api.open_under_cursor()
+end, opts)
+
 -- Selected text moving
 map('v', '>', '>gv', opts)
 map('v', '<', '<gv', opts)

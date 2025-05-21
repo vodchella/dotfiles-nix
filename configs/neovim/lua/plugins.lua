@@ -70,9 +70,7 @@ return require('packer').startup(function(use)
     use {
         'vodchella/hodur.nvim',
         config = function()
-            require('hodur').setup({
-                key = "<C-g>"
-            })
+            require('hodur').setup({})
         end
     }
 

@@ -41,6 +41,9 @@ return require('packer').startup(function(use)
     use 'ap/vim-css-color'
     use 'kyazdani42/nvim-web-devicons'
 
+    use 'rcarriga/nvim-notify'
+    vim.notify = require("notify")
+
     -- Highlighting
     use 'nvim-treesitter/nvim-treesitter'
     use({

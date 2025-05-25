@@ -47,3 +47,8 @@ map('v', '>', '>gv', opts)
 map('v', '<', '<gv', opts)
 map('v', '<S-Up>', ':m \'<-2<CR>gv=gv', opts)
 map('v', '<S-Down>', ':m \'>+1<CR>gv=gv', opts)
+
+-- Add cursor (visual multi)
+map('n', '<C-c>', function()
+  vim.cmd('call vm#commands#add_cursor_at_pos(0)')
+end, opts)

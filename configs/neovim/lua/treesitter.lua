@@ -12,6 +12,7 @@ require'nvim-treesitter.configs'.setup {
         'lua',
         'markdown',
         'nix',
+        'ocaml',
         'pascal',
         'python',
         'regex',

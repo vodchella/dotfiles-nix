@@ -21,6 +21,7 @@
     gcc
     most
     openssh
+    rlwrap
     udiskie
   ];
 

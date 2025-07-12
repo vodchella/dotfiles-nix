@@ -3,25 +3,25 @@ if not cmp_status_ok then
     return
 end
 
-local snip_status_ok, luasnip = pcall(require, "luasnip")
-if not snip_status_ok then
-    return
-end
+-- local snip_status_ok, luasnip = pcall(require, "luasnip")
+-- if not snip_status_ok then
+--     return
+-- end
 
-require("luasnip/loaders/from_vscode").lazy_load()
+-- require("luasnip/loaders/from_vscode").lazy_load()
 
 cmp.setup {
-    snippet = {
-        expand = function(args)
-            luasnip.lsp_expand(args.body)
-        end,
-    },
+    -- snippet = {
+    --     expand = function(args)
+    --         luasnip.lsp_expand(args.body)
+    --     end,
+    -- },
     sources = {
-        { name = 'nvim_lsp' },
-        { name = 'nvim_lua' },
-        { name = 'luasnip' },
         { name = 'buffer' },
-        { name = 'path' },
+        -- { name = 'nvim_lsp' },
+        -- { name = 'nvim_lua' },
+        -- { name = 'luasnip' },
+        -- { name = 'path' },
     },
     mapping = {
         ['<CR>'] = cmp.mapping.confirm { select = true },

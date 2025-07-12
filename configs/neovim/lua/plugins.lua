@@ -28,12 +28,12 @@ return require('packer').startup(function(use)
 
     -- Completions
     use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-nvim-lua'
     use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'saadparwaiz1/cmp_luasnip'
-    use 'L3MON4D3/LuaSnip'
+    -- use 'hrsh7th/cmp-nvim-lua'
+    -- use 'hrsh7th/cmp-path'
+    -- use 'hrsh7th/cmp-nvim-lsp'
+    -- use 'saadparwaiz1/cmp_luasnip'
+    -- use 'L3MON4D3/LuaSnip'
 
     -- Look and feel
     use 'machakann/vim-highlightedyank'
@@ -46,14 +46,14 @@ return require('packer').startup(function(use)
 
     -- Highlighting
     use 'nvim-treesitter/nvim-treesitter'
-    use({
-        'MeanderingProgrammer/render-markdown.nvim',
-        after = { 'nvim-treesitter' },
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true },
-        config = function()
-            require('render-markdown').setup({})
-        end,
-    })
+    -- use({
+    --     'MeanderingProgrammer/render-markdown.nvim',
+    --     after = { 'nvim-treesitter' },
+    --     requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+    --     config = function()
+    --         require('render-markdown').setup({})
+    --     end,
+    -- })
 
     -- Widgets
     use 'nvim-lualine/lualine.nvim'

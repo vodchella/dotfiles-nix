@@ -31,7 +31,7 @@
       set -gx NIX_PATH "nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs"
       set -gx MANPATH $MANPATH $HOME/.nix-profile/share/man
       set -gx INFOPATH $INFOPATH $HOME/.nix-profile/share/info
-        
+
       if test -e /nix/var/nix/profiles/default/etc/profile.d/nix.sh
           source /nix/var/nix/profiles/default/etc/profile.d/nix.sh
       end
@@ -52,13 +52,17 @@
     interactiveShellInit = /*fish*/ ''
       set -gx PATH $PATH $HOME/.nix-profile/bin /run/current-system/sw/bin /nix/var/nix/profiles/default/bin
 
+      if type -q opam
+        eval (opam env)
+      end
+
       if not pgrep -u (id -u) ssh-agent > /dev/null
-          eval (ssh-agent -c) >/dev/null
+        eval (ssh-agent -c) >/dev/null
       end
 
       if not ssh-add -l | grep -q github
-          ssh-add ~/.ssh/github >/dev/null 2>&1
-          ssh-add ~/.ssh/vpn-srv >/dev/null 2>&1
+        ssh-add ~/.ssh/github >/dev/null 2>&1
+        ssh-add ~/.ssh/vpn-srv >/dev/null 2>&1
       end
     '';
   };

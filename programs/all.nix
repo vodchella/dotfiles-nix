@@ -15,14 +15,12 @@
   ];
 
   home.packages = with pkgs; [
-    alacritty
     atac
     fontconfig
     gcc
     most
     openssh
     rlwrap
-    udiskie
   ];
 
   programs = {

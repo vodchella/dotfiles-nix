@@ -39,21 +39,17 @@
       bind \cf fzf-file-widget
     '';
 
-    loginShellInit = /* fish */ ''
-      if status is-interactive
-        if not set -q TMUX
-          if set -q RUN_TMUX_ON_FISH_STARTUP; and test "$RUN_TMUX_ON_FISH_STARTUP" = "1"
-            exec tmux
-          end
-        end
-      end
-    '';
-
     interactiveShellInit = /*fish*/ ''
       set -gx PATH $PATH $HOME/.nix-profile/bin /run/current-system/sw/bin /nix/var/nix/profiles/default/bin
 
       if type -q opam
         eval (opam env)
+      end
+
+      if not set -q TMUX
+        if set -q RUN_TMUX_ON_FISH_STARTUP; and test "$RUN_TMUX_ON_FISH_STARTUP" = "1"
+          exec tmux
+        end
       end
 
       if not pgrep -u (id -u) ssh-agent > /dev/null

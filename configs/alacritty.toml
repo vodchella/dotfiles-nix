@@ -41,3 +41,8 @@ family = "Terminess Nerd Font Mono"
 [font.normal]
 family = "Terminess Nerd Font Mono"
 style = "Regular"
+
+[[keyboard.bindings]]
+key = "Slash"
+mods = "Control"
+chars = "\u001f"

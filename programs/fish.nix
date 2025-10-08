@@ -14,6 +14,7 @@
       doInstallCheck = false;
       doTest = false;
       buildInputs = oldAttrs.buildInputs ++ [ pkgs.ncurses ];
+      cmakeFlags = (oldAttrs.cmakeFlags or []) ++ [ "-DBUILD_TESTING=OFF" ];
       patchPhase = ''
         echo "Skipping patchPhase"
       '';

@@ -10,10 +10,7 @@
         sha256 = "614c9f5643cd0799df391395fa6bbc3649427bb839722ce3b114d3bbc1a3b250";
       };
       patches = (oldAttrs.patches or []) ++ [
-        (pkgs.fetchpatch {
-          url = "https://github.com/fish-shell/fish-shell/commit/10adbc7b2f7c73a42b91c93a39f4f4de1c91d6e1.patch";
-          sha256 = "sha256-E7ujEJhPrjR9i2BFFZKpKLC1zbcjUGmYe7XzAdZ9mBM=";
-        })
+        (builtins.readFile ./fix-fish-test-target.patch)
       ];
       doCheck = false;
       doInstallCheck = false;

@@ -1,0 +1,13 @@
+diff --git a/cmake/Tests.cmake b/cmake/Tests.cmake
+index abcdef0..1234567 100644
+--- a/cmake/Tests.cmake
++++ b/cmake/Tests.cmake
+@@ -46,7 +46,7 @@ endif()
+
+ # create a target for running tests
+ if(TESTING AND NOT TARGET test)
+-  add_custom_target(test
++  add_custom_target(fish_test
+     COMMAND ${CMAKE_CTEST_COMMAND}
+     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+     COMMENT "Running fish tests"

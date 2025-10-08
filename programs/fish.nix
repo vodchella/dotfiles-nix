@@ -10,7 +10,7 @@
         sha256 = "614c9f5643cd0799df391395fa6bbc3649427bb839722ce3b114d3bbc1a3b250";
       };
       patches = (oldAttrs.patches or []) ++ [
-        (builtins.readFile ./fix-fish-test-target.patch)
+        ./fix-fish-test-target.patch
       ];
       doCheck = false;
       doInstallCheck = false;

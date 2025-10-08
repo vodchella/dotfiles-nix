@@ -4,10 +4,10 @@
   programs.fish = {
     enable = true;
     package = pkgs.fish.overrideAttrs (oldAttrs: {
-      version = "3.7.2";
+      version = "4.1.0";
       src = pkgs.fetchurl {
-        url = "https://github.com/fish-shell/fish-shell/releases/download/3.7.2/fish-3.7.2.tar.xz";
-        sha256 = "sha256-nb/6dnA1FKJhFMwVjC2bo2kB7hyj3SV5mLY50kNgFEA=";
+        url = "https://github.com/fish-shell/fish-shell/releases/download/4.1.0/fish-4.1.0.tar.xz";
+        sha256 = "07a76c67e161b9edc772e6f1d66ebead85d7056e86631d61577f9f9a529c4d9c";
         # url = "https://github.com/fish-shell/fish-shell/releases/download/3.7.1/fish-3.7.1.tar.xz";
         # sha256 = "614c9f5643cd0799df391395fa6bbc3649427bb839722ce3b114d3bbc1a3b250";
       };

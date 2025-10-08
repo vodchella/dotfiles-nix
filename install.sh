@@ -48,6 +48,7 @@ if command_exists git; then
     clone_and_switch
 else
     echo "Git not found. Using nix-shell to run git temporarily..."
+    export REPO_URL TARGET_DIR
     nix-shell -p git --run "$(declare -f clone_and_switch); clone_and_switch"
 fi
 

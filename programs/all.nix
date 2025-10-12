@@ -21,6 +21,7 @@
     most
     openssh
     rlwrap
+    tldr
   ];
 
   programs = {

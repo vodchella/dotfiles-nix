@@ -22,6 +22,7 @@
     openssh
     rlwrap
     tldr
+    xclip
   ];
 
   programs = {

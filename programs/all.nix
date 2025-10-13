@@ -19,6 +19,7 @@
     fontconfig
     gcc
     most
+    neofetch
     openssh
     rlwrap
     tldr

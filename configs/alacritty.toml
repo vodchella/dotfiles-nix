@@ -30,7 +30,7 @@ blink_timeout = 0
 blinking = "On"
 
 [font]
-size = 20
+size = 16
 
 [font.bold]
 family = "Terminess Nerd Font Mono"

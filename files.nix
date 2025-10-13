@@ -5,8 +5,8 @@
     source = ./configs/.ideavimrc;
   };
 
-  home.file.".config/compton.conf" = {
-    source = ./configs/compton.conf;
+  home.file.".config/regolith3/picom/config" = {
+    source = ./configs/picom/config;
   };
 
   home.file.".config/udiskie/config.yml" = {

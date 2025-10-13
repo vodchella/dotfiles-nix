@@ -17,6 +17,11 @@
     source = ./configs/alacritty.toml;
   };
 
+  home.file.".config/regolith3/i3xrocks" = {
+    source = ./configs/i3xrocks;
+    recursive = true;
+  };
+
   home.activation.emptySshKeys = /*bash*/ ''
     mkdir -p ~/.ssh
     chmod 700 ~/.ssh

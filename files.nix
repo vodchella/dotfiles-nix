@@ -13,6 +13,10 @@
     source = ./configs/udiskie.yml;
   };
 
+  home.file.".config/posting/config.yaml" = {
+    source = ./configs/posting/config.yaml;
+  };
+
   home.file.".config/alacritty/alacritty.toml" = {
     source = ./configs/alacritty.toml;
   };

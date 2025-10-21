@@ -11,6 +11,9 @@ map('n', '<C-m>', ':Marks<CR>', opts)
 map('n', '<C-f>', ':Files<CR>', opts)
 map('n', '<C-b>', ':Buffers<CR>', opts)
 
+-- File browser
+map("n", "-", require("oil").open_float, { desc = "Open parent directory" })
+
 -- Comments
 -- <C-/> обозначается в Lua как <C-_>.
 local comment_not_loaded = "Comment.nvim doesn't loadad, PackerSync will save you :)"

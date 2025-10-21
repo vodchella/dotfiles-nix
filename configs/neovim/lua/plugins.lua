@@ -66,6 +66,23 @@ return require('packer').startup(function(use)
         end
     }
 
+    -- File browser
+    use {
+        'stevearc/oil.nvim',
+        config = function()
+            require('oil').setup({
+                default_file_explorer = true,
+                view_options = {
+                    show_hidden = true,
+                    is_hidden_file = function(name, bufnr)
+                      local m = name:match("^%.")
+                      return m ~= nil
+                    end,
+                }
+            })
+        end,
+    }
+
     -- Other
     use 'junegunn/fzf'
     use 'junegunn/fzf.vim'

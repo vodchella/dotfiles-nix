@@ -1,7 +1,7 @@
 require'nvim-treesitter.configs'.setup {
     ensure_installed = {
         -- 'ada',
-        -- 'bash',
+        'bash',
         -- 'dockerfile',
         'fish',
         -- 'gitignore',
@@ -11,14 +11,14 @@ require'nvim-treesitter.configs'.setup {
         -- 'json',
         -- 'lua',
         -- 'markdown',
-        -- 'nix',
+        'nix',
         -- 'ocaml',
         -- 'pascal',
         -- 'python',
         -- 'regex',
         -- 'rust',
         -- 'sql',
-        -- 'tmux',
+        'tmux',
         -- 'vim',
         -- 'yaml',
         -- 'xml'

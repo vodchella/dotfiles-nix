@@ -42,7 +42,7 @@ in
       setw -g pane-base-index 1
 
       # Общий стиль статусбара
-      set -g status-position top
+      set-option -g status-position bottom
       set -g status-style bg=black,fg=white
 
       # Левая часть: hostname зелёным

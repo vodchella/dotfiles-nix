@@ -15,12 +15,12 @@
   ];
 
   home.packages = with pkgs; [
-    atac
     fontconfig
     gcc
     most
     neofetch
     openssh
+    posting
     rlwrap
     tldr
     xclip

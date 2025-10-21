@@ -10,7 +10,6 @@
     ./oh-my-posh.nix
     ./ranger.nix
     ./tmux.nix
-    ./zellij.nix
     ./zoxide.nix
   ];
 

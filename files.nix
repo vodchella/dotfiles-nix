@@ -5,6 +5,10 @@
     source = ./scripts/run-posting;
   };
 
+  home.file.".local/bin/run-harlequin" = {
+    source = ./scripts/run-harlequin;
+  };
+
   home.file.".ideavimrc" = {
     source = ./configs/.ideavimrc;
   };

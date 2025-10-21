@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+collections_root="$HOME/.config/posting/collections"
+
+# 1. выбрать коллекцию
+collection_dir=$(find "$collections_root" -mindepth 1 -maxdepth 1 -type d -not -path "*/.git*" | fzf --prompt="Выбери коллекцию: ")
+[ -z "$collection_dir" ] && exit 0
+
+# 2. проверить наличие env/
+env_dir="$collection_dir/env"
+env_file=""
+
+if [[ -d "$env_dir" ]]; then
+  # собрать список .env файлов
+  mapfile -t env_files < <(find "$env_dir" -type f -name "*.env" | sort)
+
+  case "${#env_files[@]}" in
+    0)
+      # нет .env — ничего не делаем
+      ;;
+    1)
+      # один .env — используем его
+      env_file="${env_files[0]}"
+      ;;
+    *)
+      # несколько .env — показать выбор через fzf
+      env_file=$(printf "%s\n" "${env_files[@]}" | fzf --prompt="Выбери .env файл: " || true)
+      ;;
+  esac
+fi
+
+# 3. запуск posting
+if [[ -n "${env_file:-}" ]]; then
+  echo "▶ posting --collection \"$collection_dir\" --env \"$env_file\""
+  posting --collection "$collection_dir" --env "$env_file"
+else
+  echo "▶ posting --collection \"$collection_dir\""
+  posting --collection "$collection_dir"
+fi

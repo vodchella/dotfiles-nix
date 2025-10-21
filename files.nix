@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  home.file.".local/bin/run-posting" = {
+    source = ./scripts/run-posting;
+  };
+
   home.file.".ideavimrc" = {
     source = ./configs/.ideavimrc;
   };

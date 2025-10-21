@@ -17,6 +17,7 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- Text editing
+    use 'tpope/vim-sleuth'
     use 'jiangmiao/auto-pairs'
     use 'mg979/vim-visual-multi'
     use {

@@ -1,1 +1,5 @@
 theme: gruvbox
+editor: nvim
+pager: less
+keymap:
+  send-request: ctrl+r

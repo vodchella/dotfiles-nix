@@ -24,6 +24,8 @@ vnoremap < <gv
 
 vmap <S-Up>   :action MoveLineUp<cr>
 vmap <S-Down> :action MoveLineDown<cr>
+vmap <S-K>    :action MoveLineUp<cr>
+vmap <S-J>    :action MoveLineDown<cr>
 
 map f  <Plug>(easymotion-s)<ESC>
 map F  <Plug>(easymotion-bd-w)<ESC>

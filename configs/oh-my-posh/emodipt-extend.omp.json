@@ -6,6 +6,11 @@
         "newline": true,
         "segments": [
           {
+            "foreground": "#F3C267",
+            "style": "plain",
+            "type": "os"
+          },
+          {
             "foreground": "#E5C07B",
             "properties": {
               "time_format": "15:04"

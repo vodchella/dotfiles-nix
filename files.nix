@@ -1,44 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  home.file.".local/bin/run-posting" = {
-    source = ./scripts/run-posting;
-  };
-
-  home.file.".local/bin/run-harlequin" = {
-    source = ./scripts/run-harlequin;
-  };
-
-  home.file.".ideavimrc" = {
-    source = ./configs/.ideavimrc;
-  };
-
-  home.file.".config/regolith3/picom/config" = {
-    source = ./configs/picom/config;
-  };
-
-  home.file.".config/udiskie/config.yml" = {
-    source = ./configs/udiskie.yml;
-  };
-
-  home.file.".config/posting/config.yaml" = {
-    source = ./configs/posting/config.yaml;
-  };
-
-  home.file.".config/alacritty/alacritty.toml" = {
-    source = ./configs/alacritty.toml;
-  };
-
-  home.file.".config/regolith3/i3xrocks" = {
-    source = ./configs/i3xrocks;
-    recursive = true;
-  };
-
-  home.file.".config/oh-my-posh" = {
-    source = ./configs/oh-my-posh;
-    recursive = true;
-  };
-
   home.activation.emptySshKeys = /*bash*/ ''
     mkdir -p ~/.ssh
     chmod 700 ~/.ssh

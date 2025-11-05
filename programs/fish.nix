@@ -1,11 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  home.file.".config/fish/functions" = {
-    source = ../configs/fish/functions;
-    recursive = true;
-  };
-
   programs.fish = {
     enable = true;
     package = pkgs.fish.overrideAttrs (oldAttrs: {

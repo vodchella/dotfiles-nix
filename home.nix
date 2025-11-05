@@ -9,7 +9,9 @@ in
     ./aliases.nix
     ./files.nix
     ./fonts.nix
+    ./configs/all.nix
     ./programs/all.nix
+    ./scripts/all.nix
   ];
 
   home.username = builtins.getEnv "USER";

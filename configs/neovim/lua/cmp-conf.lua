@@ -18,10 +18,10 @@ cmp.setup {
     -- },
     sources = {
         { name = 'buffer' },
+        { name = 'path' },
         -- { name = 'nvim_lsp' },
         -- { name = 'nvim_lua' },
         -- { name = 'luasnip' },
-        -- { name = 'path' },
     },
     mapping = {
         ['<CR>'] = cmp.mapping.confirm { select = true },

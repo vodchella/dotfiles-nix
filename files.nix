@@ -34,6 +34,11 @@
     recursive = true;
   };
 
+  home.file.".config/oh-my-posh" = {
+    source = ./configs/oh-my-posh;
+    recursive = true;
+  };
+
   home.activation.emptySshKeys = /*bash*/ ''
     mkdir -p ~/.ssh
     chmod 700 ~/.ssh

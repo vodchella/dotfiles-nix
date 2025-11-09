@@ -26,6 +26,12 @@ return require('packer').startup(function(use)
           require('Comment').setup()
         end
     }
+    use {
+        'nvim-mini/mini.surround',
+        config = function()
+          require('mini.surround').setup()
+        end
+    }
 
     -- Completions
     use 'hrsh7th/nvim-cmp'

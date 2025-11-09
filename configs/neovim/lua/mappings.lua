@@ -69,9 +69,39 @@ map('n', '<leader>ca', vim.lsp.buf.code_action, opts)
 map('n', '<leader>cr', vim.lsp.buf.rename, opts)
 map('n', '<leader>e',  vim.diagnostic.open_float, opts)
 map('n', '<leader>E',  vim.diagnostic.setloclist, opts)
--- map('n', '<leader>E',  function()
---   vim.diagnostic.setloclist({ severity = vim.diagnostic.severity.WARN })
--- end, opts)
+
+
+-- DAP (отладчик)
+local dap, dapui = require('dap'), require('dapui')
+dapui.setup()
+
+-- Авто-открытие/закрытие UI
+dap.listeners.after.event_initialized['dapui_config'] = function() dapui.open()  end
+dap.listeners.before.event_terminated['dapui_config'] = function() dapui.close() end
+dap.listeners.before.event_exited['dapui_config']     = function() dapui.close() end
+
+map('n', '<F9>',        dap.continue,          { desc='DAP Continue' })
+map('n', '<F8>',        dap.step_over,         { desc='DAP Step Over' })
+map('n', '<F7>',        dap.step_into,         { desc='DAP Step Into' })
+map('n', '<S-F8>',      dap.step_out,          { desc='DAP Step Out' })
+map('n', '<leader>db',  dap.toggle_breakpoint, { desc='DAP Toggle BP' })
+map('n', '<leader>dB',  function()
+  vim.ui.input({ prompt = 'Condition: ' }, function(cond)
+    if cond then dap.set_breakpoint(cond) end
+  end)
+end, { desc='DAP Conditional BP' })
+map('n', '<leader>dq',  function()
+  local dap = require('dap')
+  local dapui = require('dapui')
+
+  -- Сначала остановить/отсоединиться от отладочной JVM
+  dap.terminate()
+  dap.disconnect({ terminateDebuggee = true })
+
+  -- Затем закрыть интерфейс (панели, консоль, т.д.)
+  dapui.close()
+end, { desc = 'Stop debug and close UI' })
+
 
 -- убираем любые <CR> маппинги в qf-буфере, иначе невозможно ничего выбрать в списке по '<leader>gr'
 vim.api.nvim_create_autocmd("FileType", {

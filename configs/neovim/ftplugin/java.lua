@@ -7,6 +7,7 @@ local mason = data .. '/mason'
 local jdt    = mason .. '/packages/jdtls'
 local config = jdt .. '/config_linux'
 local launcher = vim.fn.glob(jdt .. '/plugins/org.eclipse.equinox.launcher_*.jar')
+local debug_bundle = vim.fn.glob(mason .. "/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar")
 
 --- Lombok jar: берём из ENV, иначе из стандартного места
 local lombok = vim.env.LOMBOK_JAR or (vim.fn.expand('~/.local/share/nvim/mason/packages/jdtls/lombok.jar'))
@@ -40,6 +41,13 @@ local jdtls_config = {
   name = 'jdtls',
   cmd = cmd,
   root_dir = vim.fs.root(0, {'gradlew', '.git', 'mvnw'}),
+  init_options = {
+    bundles = { debug_bundle }
+  },
+  on_attach = function(client, bufnr)
+      require('jdtls').setup_dap{ hotcodereplace = 'auto' }
+      require('jdtls.dap').setup_dap_main_class_configs()
+  end,
 }
 
 jdtls.start_or_attach(jdtls_config)

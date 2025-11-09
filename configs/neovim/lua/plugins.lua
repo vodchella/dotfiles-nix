@@ -91,6 +91,7 @@ return require('packer').startup(function(use)
     }
 
     -- LSP and related
+    use 'mfussenegger/nvim-jdtls'
     use {
         'williamboman/mason.nvim',
         config = function()
@@ -107,7 +108,35 @@ return require('packer').startup(function(use)
             })
         end
     }
-    use 'mfussenegger/nvim-jdtls'
+
+    -- DAP (отладчик)
+    use {
+        'mfussenegger/nvim-dap',
+        config = function()
+            require('dap').configurations.java = {
+              {
+                type = 'java',
+                request = 'attach',
+                name = "Attach to JVM",
+                hostName = "localhost",
+                port = 5005
+              },
+            }
+        end
+    }
+    use { 'rcarriga/nvim-dap-ui', requires = { 'mfussenegger/nvim-dap', 'nvim-neotest/nvim-nio' } }
+    -- Нифига этот Java-адаптер не ставится через конфиг, поставил руками через :Mason
+    -- use {  -- Mason для DAP
+    --     'jay-babu/mason-nvim-dap.nvim',
+    --     after = 'mason.nvim',
+    --     requires = { 'mfussenegger/nvim-dap' },
+    --     config = function()
+    --         require('mason-nvim-dap').setup({
+    --             ensure_installed = { 'java' },  -- Java Debug Adapter
+    --             automatic_installation = true,
+    --         })
+    --     end
+    -- }
 
     -- Fuzzy searching
     use 'junegunn/fzf'

@@ -37,8 +37,8 @@ return require('packer').startup(function(use)
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-nvim-lsp'
     -- use 'hrsh7th/cmp-nvim-lua'
-    -- use 'hrsh7th/cmp-nvim-lsp'
     -- use 'saadparwaiz1/cmp_luasnip'
     -- use 'L3MON4D3/LuaSnip'
 
@@ -108,12 +108,12 @@ return require('packer').startup(function(use)
         end
     }
     use 'mfussenegger/nvim-jdtls'
-  -- use 'neovim/nvim-lspconfig'
 
-    -- Other
+    -- Fuzzy searching
     use 'junegunn/fzf'
     use 'junegunn/fzf.vim'
 
+    -- Other
     use {
         'vodchella/hodur.nvim',
         config = function()

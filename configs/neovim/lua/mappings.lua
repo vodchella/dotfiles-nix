@@ -59,3 +59,24 @@ map('v', '<S-J>', ':m \'>+1<CR>gv=gv', opts)
 map('n', '<C-c>', function()
   vim.cmd('call vm#commands#add_cursor_at_pos(0)')
 end, opts)
+
+-- LSP
+map('n', '<leader>gd', vim.lsp.buf.definition, opts)
+map('n', '<leader>gD', vim.lsp.buf.declaration, opts)
+map('n', '<leader>gi', vim.lsp.buf.implementation, opts)
+map('n', '<leader>gr', vim.lsp.buf.references, opts)
+map('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+map('n', '<leader>cr', vim.lsp.buf.rename, opts)
+map('n', '<leader>e',  vim.diagnostic.open_float, opts)
+
+-- убираем любые <CR> маппинги в qf-буфере, иначе невозможно ничего выбрать в списке по '<leader>gr'
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  callback = function(ev)
+    pcall(vim.keymap.del, "n", "<CR>", { buffer = ev.buf })
+    pcall(vim.keymap.del, "i", "<CR>", { buffer = ev.buf })
+    pcall(vim.keymap.del, "v", "<CR>", { buffer = ev.buf })
+    -- на всякий случай явно зададим дефолт:
+    vim.keymap.set("n", "<CR>", "<CR>", { buffer = ev.buf, noremap = true, silent = true })
+  end,
+})

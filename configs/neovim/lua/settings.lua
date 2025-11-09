@@ -17,6 +17,7 @@ set.tabstop = 4
 set.shiftwidth = 4
 set.smarttab = true
 set.expandtab = true
+set.signcolumn = 'number'
 
 set.hlsearch = true
 set.incsearch = true
@@ -29,7 +30,7 @@ set.cursorline = true
 set.scrolloff = 5
 
 
-vim.opt.termguicolors = true
+set.termguicolors = true
 vim.cmd[[colorscheme gruvbox]]
 
 vim.api.nvim_create_autocmd("TermOpen", {
@@ -39,6 +40,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
         vim.opt_local.relativenumber = true
     end,
 })
+
 
 vim.cmd [[
   highlight ExtraWhitespace ctermbg=red guibg=red

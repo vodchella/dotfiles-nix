@@ -68,6 +68,10 @@ map('n', '<leader>gr', vim.lsp.buf.references, opts)
 map('n', '<leader>ca', vim.lsp.buf.code_action, opts)
 map('n', '<leader>cr', vim.lsp.buf.rename, opts)
 map('n', '<leader>e',  vim.diagnostic.open_float, opts)
+map('n', '<leader>E',  vim.diagnostic.setloclist, opts)
+-- map('n', '<leader>E',  function()
+--   vim.diagnostic.setloclist({ severity = vim.diagnostic.severity.WARN })
+-- end, opts)
 
 -- убираем любые <CR> маппинги в qf-буфере, иначе невозможно ничего выбрать в списке по '<leader>gr'
 vim.api.nvim_create_autocmd("FileType", {

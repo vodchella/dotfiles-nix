@@ -143,6 +143,7 @@ return require('packer').startup(function(use)
     use 'junegunn/fzf.vim'
 
     -- Other
+    use 'szw/vim-maximizer'
     use {
         'vodchella/hodur.nvim',
         config = function()

@@ -90,6 +90,26 @@ return require('packer').startup(function(use)
         end,
     }
 
+    -- LSP and related
+    use {
+        'williamboman/mason.nvim',
+        config = function()
+            require('mason').setup()
+        end
+    }
+    use {
+        'williamboman/mason-lspconfig.nvim',
+        after = 'mason.nvim',
+        config = function()
+            require('mason-lspconfig').setup({
+                ensure_installed = { 'jdtls' },
+                automatic_installation = true,
+            })
+        end
+    }
+    use 'mfussenegger/nvim-jdtls'
+  -- use 'neovim/nvim-lspconfig'
+
     -- Other
     use 'junegunn/fzf'
     use 'junegunn/fzf.vim'

@@ -1,6 +1,8 @@
 local map = vim.keymap.set
 local opts = { silent = true }
 
+vim.g.mapleader = ' '
+
 -- Terminal
 map('n', '<C-t>', ':terminal<CR>', opts)
 map('t', '<C-i>', [[<C-\><C-n>]], opts)

@@ -30,6 +30,7 @@
       set -gx LC_ALL en_US.UTF-8
 
       set -gx PATH $PATH $HOME/.nix-profile/bin /nix/var/nix/profiles/default/bin
+      set -gx PATH $PATH $HOME/.local/share/nvim/mason/packages/jdtls/bin/
       set -gx NIX_PATH "nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs"
       set -gx MANPATH $MANPATH $HOME/.nix-profile/share/man
       set -gx INFOPATH $INFOPATH $HOME/.nix-profile/share/info

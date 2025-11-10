@@ -103,6 +103,15 @@ map('n', '<leader>dq',  function()
 end, { desc = 'Stop debug and close UI' })
 
 
+-- Checkstyle
+vim.api.nvim_create_user_command("Checkstyle", function()
+  require("checkstyle").run_current_file()
+end, {})
+
+-- Маппинг, например:
+map("n", "<leader>cs", "<cmd>Checkstyle<cr>", { desc = "Run Checkstyle" })
+
+
 -- убираем любые <CR> маппинги в qf-буфере, иначе невозможно ничего выбрать в списке по '<leader>gr'
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "qf",

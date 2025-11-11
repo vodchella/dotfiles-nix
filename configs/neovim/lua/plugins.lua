@@ -73,6 +73,13 @@ return require('packer').startup(function(use)
             require('bufferline').setup({})
         end
     }
+    use({
+        'kdheepak/lazygit.nvim',
+        -- optional for floating window border decoration
+        requires = {
+            'nvim-lua/plenary.nvim',
+        },
+    })
 
     -- File browser
     use {

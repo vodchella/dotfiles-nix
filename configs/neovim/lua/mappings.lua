@@ -72,6 +72,7 @@ map('n', '<leader>e',  vim.diagnostic.open_float, opts)
 map('n', '<leader>E',  vim.diagnostic.setloclist, opts)
 map('n', '<leader>cJ', fns.jdtls_update_project_config, { desc = 'Update JDTLS project configuration' })
 map('x', '<leader>ch', fns.git_history_for_selection, { desc = 'Git history for selection' })
+map('n', '<leader>lg', '<cmd>LazyGit<cr>', { desc = 'LazyGit' })
 
 
 -- DAP (отладчик)

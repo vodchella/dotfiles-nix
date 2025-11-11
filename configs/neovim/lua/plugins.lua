@@ -63,6 +63,7 @@ return require('packer').startup(function(use)
     -- })
 
     -- Widgets
+    use 'vimpostor/vim-tpipeline'
     use 'nvim-lualine/lualine.nvim'
     use {
         'akinsho/bufferline.nvim',

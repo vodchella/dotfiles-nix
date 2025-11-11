@@ -43,13 +43,14 @@ in
 
       # Общий стиль статусбара
       set-option -g status-position bottom
-      set -g status-style bg=black,fg=white
 
       # Левая часть: hostname зелёным
       # set -g status-left "#[fg=green] #H "
+      set -g status-left " "
 
       # Правая часть: дата и время
-      set -g status-right "#[fg=yellow]%F #[fg=cyan]#(date +%%H:%%M) "
+      # set -g status-right "#[fg=yellow]%F #[fg=cyan]#(date +%%H:%%M) "
+      set -g status-right " "
 
       # Обычные (неактивные) окна: белый текст, серый фон
       set -g window-status-format "#[fg=white,bg=black] #I:#W "
@@ -58,7 +59,14 @@ in
       # Разделитель между окнами
       set -g window-status-separator " "
 
-      set -g status-justify left
+      # Рекомендовано для nvim-плагина vimpostor/vim-tpipeline
+      set -g focus-events on
+      set -g status-style bg=default
+      # set -g status-style bg=black,fg=white
+      set -g status-left-length 99
+      set -g status-right-length 99
+      set -g status-justify centre
+      # set -g status-justify left
 
       ### Быстрые клавиши переключения окон
       bind -n M-1 select-window -t 1

@@ -1,5 +1,6 @@
 local map = vim.keymap.set
 local opts = { silent = true }
+local fns = require('functions')
 
 vim.g.mapleader = ' '
 
@@ -14,7 +15,7 @@ map('n', '<C-f>', ':Files<CR>', opts)
 map('n', '<C-b>', ':Buffers<CR>', opts)
 
 -- File browser
-map("n", "-", require("oil").open_float, { desc = "Open parent directory" })
+map("n", "-", require('oil').open_float, { desc = 'Open parent directory' })
 
 -- Comments
 -- <C-/> обозначается в Lua как <C-_>.
@@ -69,13 +70,8 @@ map('n', '<leader>ca', vim.lsp.buf.code_action, opts)
 map('n', '<leader>cr', vim.lsp.buf.rename, opts)
 map('n', '<leader>e',  vim.diagnostic.open_float, opts)
 map('n', '<leader>E',  vim.diagnostic.setloclist, opts)
-map('n', '<leader>cJ',
-  function()
-    require('jdtls').update_project_config()
-    vim.notify('JDTLS project config updated', vim.log.levels.INFO)
-  end,
-  { desc = 'Update JDTLS project configuration' }
-)
+map('n', '<leader>cJ', fns.jdtls_update_project_config, { desc = 'Update JDTLS project configuration' })
+map('x', '<leader>ch', fns.git_history_for_selection, { desc = 'Git history for selection' })
 
 
 -- DAP (отладчик)

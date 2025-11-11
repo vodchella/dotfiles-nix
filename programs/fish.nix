@@ -39,7 +39,8 @@
           source /nix/var/nix/profiles/default/etc/profile.d/nix.sh
       end
 
-      bind \cf fzf-file-widget
+      bind -M default \cf fzf-file-widget
+      bind -M insert \cf fzf-file-widget
     '';
 
     interactiveShellInit = /*fish*/ ''

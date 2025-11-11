@@ -69,6 +69,13 @@ map('n', '<leader>ca', vim.lsp.buf.code_action, opts)
 map('n', '<leader>cr', vim.lsp.buf.rename, opts)
 map('n', '<leader>e',  vim.diagnostic.open_float, opts)
 map('n', '<leader>E',  vim.diagnostic.setloclist, opts)
+map('n', '<leader>cJ',
+  function()
+    require('jdtls').update_project_config()
+    vim.notify('JDTLS project config updated', vim.log.levels.INFO)
+  end,
+  { desc = 'Update JDTLS project configuration' }
+)
 
 
 -- DAP (отладчик)

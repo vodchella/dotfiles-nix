@@ -17,6 +17,7 @@
     checkstyle
     fontconfig
     gcc
+    lazygit
     most
     neofetch
     openssh

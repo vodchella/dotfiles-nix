@@ -75,6 +75,12 @@ map('x', '<leader>ch', fns.git_history_for_selection, { desc = 'Git history for 
 map('n', '<leader>lg', '<cmd>LazyGit<cr>', { desc = 'LazyGit' })
 
 
+-- DBEE
+map("n", "<leader>DB", function()
+  require("dbee").open()
+end, { desc = "DB: open dbee" })
+
+
 -- DAP (отладчик)
 local dap, dapui = require('dap'), require('dapui')
 dapui.setup()

@@ -50,3 +50,14 @@ vim.cmd [[
   autocmd InsertLeave * match ExtraWhitespace /\s\+$/
   autocmd BufWinLeave * call clearmatches()
 ]]
+
+
+vim.env.FZF_DEFAULT_COMMAND =
+  "find . -type f \\( " ..
+  "! -path './target/*' " ..
+  "! -path './bin/*' " ..
+  "! -path './build/*' " ..
+  "! -path './.git/*' " ..
+  "! -name '*.class' " ..
+  "! -name '*.jar' " ..
+  "\\)"

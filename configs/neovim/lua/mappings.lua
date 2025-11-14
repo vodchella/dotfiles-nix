@@ -38,6 +38,10 @@ map('v', '<C-_>', function()
   api.toggle.linewise(vim.fn.visualmode())
 end, opts)
 
+-- Tab line
+vim.keymap.set("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", opts)
+vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opts)
+
 -- Hodur
 map('n', '<C-g>', function()
   local ok, api = pcall(require, 'hodur')

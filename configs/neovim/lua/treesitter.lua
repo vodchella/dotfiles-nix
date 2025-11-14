@@ -17,10 +17,10 @@ require'nvim-treesitter.configs'.setup {
         -- 'python',
         -- 'regex',
         -- 'rust',
-        -- 'sql',
+        'sql',
         'tmux',
         -- 'vim',
-        -- 'yaml',
+        'yaml',
         -- 'xml'
     },
     highlight = {

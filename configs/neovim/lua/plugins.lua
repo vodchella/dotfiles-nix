@@ -18,7 +18,6 @@ return require('packer').startup(function(use)
 
     -- Text editing
     use 'tpope/vim-sleuth'
-    use 'jiangmiao/auto-pairs'
     use 'mg979/vim-visual-multi'
     use {
         'numToStr/Comment.nvim',
@@ -30,6 +29,17 @@ return require('packer').startup(function(use)
         'nvim-mini/mini.surround',
         config = function()
           require('mini.surround').setup()
+        end
+    }
+    use {
+        'nvim-mini/mini.pairs',
+        config = function()
+          require('mini.pairs').setup({
+              mappings = {
+                ['<'] = { action = 'open',  pair = '<>', neigh_pattern = '[^\\].' },
+                ['>'] = { action = 'close', pair = '<>', neigh_pattern = '[^\\].' },
+              }
+          })
         end
     }
 

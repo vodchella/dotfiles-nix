@@ -76,6 +76,12 @@ return require('packer').startup(function(use)
     use 'vimpostor/vim-tpipeline'
     use 'nvim-lualine/lualine.nvim'
     use {
+        'vodchella/quicker.nvim',
+        config = function()
+          require('quicker').setup()
+        end
+    }
+    use {
         'akinsho/bufferline.nvim',
         tag = "*",
         requires = { 'nvim-tree/nvim-web-devicons', opt = true },

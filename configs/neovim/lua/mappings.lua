@@ -39,8 +39,11 @@ map('v', '<C-_>', function()
 end, opts)
 
 -- Tab line
-vim.keymap.set("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", opts)
-vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opts)
+map("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", opts)
+map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opts)
+
+-- Hop (quick jumps)
+map("n", "<C-s>", "<cmd>HopPattern<CR>", opts)
 
 -- Hodur
 map('n', '<C-g>', function()

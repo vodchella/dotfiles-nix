@@ -150,6 +150,15 @@ return require('packer').startup(function(use)
     use 'junegunn/fzf'
     use 'junegunn/fzf.vim'
 
+    -- Quick jumpling
+    use {
+      'smoka7/hop.nvim',
+      tag = '*',
+      config = function()
+        require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+      end
+    }
+
     -- Other
     use 'szw/vim-maximizer'
     use {

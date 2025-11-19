@@ -3,6 +3,13 @@ local opts = { silent = true }
 local fns = require('functions')
 
 vim.g.mapleader = ' '
+map('i', 'jj',    '<Esc>',     opts)
+map('i', '<C-h>', '<Left>',    opts)
+map('i', '<C-j>', '<Down>',    opts)
+map('i', '<C-k>', '<Up>',      opts)
+map('i', '<C-l>', '<Right>',   opts)
+map('i', '<C-b>', '<C-Left>',  opts)
+map('i', '<C-f>', '<C-Right>', opts)
 
 -- Terminal
 map('n', '<C-t>', ':terminal<CR>', opts)

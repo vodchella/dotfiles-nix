@@ -5,7 +5,6 @@
     "cd.." = "cd ..";
     gc  = "cd ${configDir}";
     gp  = /*fish*/ "cd (find ~/projects -mindepth 1 -maxdepth 1 -type d -not -path '*/.git*' | fzf)";
-    h   = "run-harlequin";
     hms = "home-manager switch";
     lg  = "lazygit";
     p   = "run-posting";

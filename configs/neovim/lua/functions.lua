@@ -31,7 +31,6 @@ end
 
 function M.jdtls_update_project_config()
     require('jdtls').update_project_config()
-    vim.notify('JDTLS project config updated', vim.log.levels.INFO)
 end
 
 return M

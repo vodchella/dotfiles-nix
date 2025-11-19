@@ -23,6 +23,9 @@ map('n', '<C-m>', ':Marks<CR>', opts)
 map('n', '<C-f>', ':Files<CR>', opts)
 map('n', '<C-b>', ':Buffers<CR>', opts)
 
+-- Database
+map('n', '<leader>qq', ':DBUIToggle<CR>', opts)
+
 -- File browser
 map("n", "-", require('oil').open_float, { desc = 'Open parent directory' })
 

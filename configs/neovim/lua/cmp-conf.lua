@@ -34,3 +34,10 @@ cmp.setup {
         native_menu = false,
     },
 }
+
+cmp.setup.filetype({ 'sql', 'mysql', 'plsql' }, {
+  sources = cmp.config.sources({
+    { name = 'vim-dadbod-completion' },
+    { name = 'buffer' },
+  }),
+})

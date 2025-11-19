@@ -167,6 +167,11 @@ return require('packer').startup(function(use)
     use 'junegunn/fzf.vim'
     use 'gfanto/fzf-lsp.nvim'
 
+    -- Database support
+    use 'tpope/vim-dadbod'
+    use 'kristijanhusak/vim-dadbod-ui'
+    use 'kristijanhusak/vim-dadbod-completion'
+
     -- Quick jumpling
     use {
       'smoka7/hop.nvim',

@@ -80,7 +80,7 @@ map('n', '<C-c>', function()
   vim.cmd('call vm#commands#add_cursor_at_pos(0)')
 end, opts)
 
--- LSP
+-- LSP and coding related
 map('n', '<leader>e',  vim.diagnostic.open_float, opts)
 map('n', '<leader>E',  vim.diagnostic.setloclist, opts)
 map('n', '<leader>gd', vim.lsp.buf.definition, opts)
@@ -93,6 +93,7 @@ map('n', '<leader>cr', vim.lsp.buf.rename, opts)
 map('n', '<leader>cJ', fns.jdtls_update_project_config, { desc = 'Update JDTLS project configuration' })
 map('x', '<leader>ch', fns.git_history_for_selection, { desc = 'Git history for selection' })
 map('n', '<leader>lg', '<cmd>LazyGit<cr>', { desc = 'LazyGit' })
+map('n', '<leader>cj', '<cmd>TSJToggle<CR>', opts)
 
 
 

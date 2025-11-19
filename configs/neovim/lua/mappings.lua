@@ -3,6 +3,8 @@ local opts = { silent = true }
 local fns = require('functions')
 
 vim.g.mapleader = ' '
+
+-- Insert mode
 map('i', 'jj',    '<Esc>',     opts)
 map('i', '<C-h>', '<Left>',    opts)
 map('i', '<C-j>', '<Down>',    opts)
@@ -76,14 +78,15 @@ map('n', '<C-c>', function()
 end, opts)
 
 -- LSP
+map('n', '<leader>e',  vim.diagnostic.open_float, opts)
+map('n', '<leader>E',  vim.diagnostic.setloclist, opts)
 map('n', '<leader>gd', vim.lsp.buf.definition, opts)
 map('n', '<leader>gD', vim.lsp.buf.declaration, opts)
 map('n', '<leader>gi', vim.lsp.buf.implementation, opts)
 map('n', '<leader>gr', vim.lsp.buf.references, opts)
 map('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+map('n', '<leader>gs', '<cmd>DocumentSymbols<cr>', opts)
 map('n', '<leader>cr', vim.lsp.buf.rename, opts)
-map('n', '<leader>e',  vim.diagnostic.open_float, opts)
-map('n', '<leader>E',  vim.diagnostic.setloclist, opts)
 map('n', '<leader>cJ', fns.jdtls_update_project_config, { desc = 'Update JDTLS project configuration' })
 map('x', '<leader>ch', fns.git_history_for_selection, { desc = 'Git history for selection' })
 map('n', '<leader>lg', '<cmd>LazyGit<cr>', { desc = 'LazyGit' })
@@ -126,5 +129,5 @@ end, { desc = 'Stop debug and close UI' })
 vim.api.nvim_create_user_command("Checkstyle", function()
   require("checkstyle").run_current_file()
 end, {})
-map("n", "<leader>cs", "<cmd>Checkstyle<cr>", { desc = "Run Checkstyle" })
+map("n", '<leader>cl', '<cmd>Checkstyle<cr>', { desc = 'Run linter' })
 

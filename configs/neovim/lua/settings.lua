@@ -6,6 +6,7 @@ set.iminsert = 0
 set.imsearch = 0
 
 set.swapfile = false
+set.autoread = true
 
 set.number = true
 set.relativenumber = true

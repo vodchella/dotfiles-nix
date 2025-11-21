@@ -174,7 +174,7 @@ return require('packer').startup(function(use)
     -- Fuzzy searching
     use 'junegunn/fzf'
     use 'junegunn/fzf.vim'
-    use 'gfanto/fzf-lsp.nvim'
+    use 'vodchella/fzf-lsp.nvim'
 
     -- Database support
     use 'tpope/vim-dadbod'

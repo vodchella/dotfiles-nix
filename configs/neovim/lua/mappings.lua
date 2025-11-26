@@ -131,7 +131,11 @@ end, { desc = 'Stop debug and close UI' })
 
 -- Checkstyle
 vim.api.nvim_create_user_command("Checkstyle", function()
-  require("checkstyle").run_current_file()
+  if vim.bo.filetype == "java" then
+    require("checkstyle").run_current_file()
+  else
+    vim.notify("Checkstyle только для Java-файлов!", vim.log.levels.WARN)
+  end
 end, {})
 map("n", '<leader>cl', '<cmd>Checkstyle<cr>', { desc = 'Run linter' })
 

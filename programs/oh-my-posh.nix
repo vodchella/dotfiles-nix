@@ -5,6 +5,6 @@
     enable = true;
     enableFishIntegration = true;
     # useTheme = "emodipt-extend";
-    configFile = "$HOME/.config/oh-my-posh/emodipt-extend.omp.json";
+    configFile = "$HOME/.config/oh-my-posh/vodchella.omp.json";
   };
 }

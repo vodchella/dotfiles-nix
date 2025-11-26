@@ -10,6 +10,7 @@ require'nvim-treesitter.configs'.setup {
         'java',
         -- 'json',
         -- 'lua',
+        'make',
         -- 'markdown',
         'nix',
         'ocaml',

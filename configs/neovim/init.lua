@@ -4,4 +4,7 @@ require("plugins")
 require("settings")
 require("statusline")
 require("treesitter")
-require('auto-cmds')  -- MUST be the last
+
+-- MUST be the last:
+require("user-cmds")
+require('auto-cmds')

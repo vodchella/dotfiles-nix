@@ -29,6 +29,36 @@ function M.git_history_for_selection()
   })
 end
 
+-- Возвращает строки с именами LSP-клиентов, прикреплённых к текущему буферу
+function M.get_attached_lsp_clients()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local clients = vim.lsp.get_clients({ bufnr = bufnr })
+
+  if #clients == 0 then
+    return nil, "No LSP clients attached to this buffer"
+  end
+
+  local names = {}
+  for _, client in ipairs(clients) do
+    table.insert(names, client.name)
+  end
+
+  return names
+end
+
+-- Выводит LSP-клиентов через notify
+function M.show_lsp_for_buffer()
+  local names, err = M.get_attached_lsp_clients()
+
+  if not names then
+    vim.api.nvim_echo({{ err, "WarningMsg" }}, false, {})
+    return
+  end
+
+  local msg = "Current attached LSP: " .. table.concat(names, ", ")
+  vim.api.nvim_echo({{ msg, "None" }}, false, {})
+end
+
 function M.jdtls_update_project_config()
     require('jdtls').update_project_config()
 end

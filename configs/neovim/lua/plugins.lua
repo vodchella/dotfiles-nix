@@ -132,11 +132,25 @@ return require('packer').startup(function(use)
         end
     }
     use {
+        'WhoIsSethDaniel/mason-tool-installer.nvim',
+        after = 'mason.nvim',
+        config = function()
+            require('mason-tool-installer').setup {
+                ensure_installed = {
+                    'ocamlformat',
+                },
+            }
+        end
+    }
+    use {
         'williamboman/mason-lspconfig.nvim',
         after = 'mason.nvim',
         config = function()
             require('mason-lspconfig').setup({
-                ensure_installed = { 'jdtls' },
+                ensure_installed = {
+                    'jdtls',
+                    'ocamllsp',
+                },
                 automatic_installation = true,
             })
         end

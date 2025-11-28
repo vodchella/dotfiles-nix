@@ -23,27 +23,54 @@ vim.api.nvim_create_autocmd("TermOpen", {
 vim.cmd [[
   highlight ExtraWhitespace ctermbg=red guibg=red
 
-  function! s:ApplyWhitespaceMatch()
+  function! s:IsSpecialWindow() abort
+    " Терминал
     if &buftype ==# 'terminal'
-      " для терминального буфера подсветку выключаем
+      return 1
+    endif
+
+    " Quickfix / location list
+    if &buftype ==# 'quickfix'
+      return 1
+    endif
+
+    " Help
+    if &buftype ==# 'help'
+      return 1
+    endif
+
+    " DAP окна (repl, float и т.п.)
+    if &filetype =~# 'dap'
+      return 1
+    endif
+
+    " Dadbod UI: главное окно и результаты запросов
+    if &filetype ==# 'dbui' || &filetype ==# 'dbout'
+      return 1
+    endif
+
+    " Любое floating окно (hover, preview и т.п.)
+    if nvim_win_get_config(0)['relative'] !=# ''
+      return 1
+    endif
+
+    return 0
+  endfunction
+
+  function! s:ApplyWhitespaceMatch() abort
+    if s:IsSpecialWindow()
       match none
     else
-      " для обычных – включаем
       match ExtraWhitespace /\s\+$/
     endif
   endfunction
 
   augroup ExtraWhitespace
     autocmd!
-    " при входе в окно
     autocmd BufWinEnter * call s:ApplyWhitespaceMatch()
-    " после выхода из Insert – снова включаем (если не терминал)
     autocmd InsertLeave * call s:ApplyWhitespaceMatch()
-    " при входе в Insert – временно выключаем
     autocmd InsertEnter * match none
-    " при уходе из окна – чистим матчи
     autocmd BufWinLeave * call clearmatches()
-    " КЛЮЧЕВОЕ: при открытии терминала в текущем окне – сразу выключить
-    autocmd TermOpen * match none
+    autocmd TermOpen    * match none
   augroup END
 ]]

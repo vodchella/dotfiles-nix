@@ -72,6 +72,22 @@ return require('packer').startup(function(use)
 
     -- Highlighting
     use 'nvim-treesitter/nvim-treesitter'
+    use {
+      'folke/todo-comments.nvim',
+      requires = 'nvim-lua/plenary.nvim',
+      config = function()
+        require('todo-comments').setup {
+            highlight = {
+                keyword = "bg",
+                pattern = [[.*<(KEYWORDS)\s*]],
+                comments_only = true,
+              },
+              search = {
+                pattern = [[\b(KEYWORDS)\b]],
+              },
+        }
+      end
+    }
     -- use({
     --     'MeanderingProgrammer/render-markdown.nvim',
     --     after = { 'nvim-treesitter' },

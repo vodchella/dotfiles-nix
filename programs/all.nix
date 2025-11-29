@@ -22,6 +22,7 @@
     neofetch
     openssh
     posting
+    ripgrep
     rlwrap
     tldr
     xclip

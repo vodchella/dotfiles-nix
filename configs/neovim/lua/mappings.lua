@@ -94,6 +94,7 @@ map('n', '<leader>cJ', fns.jdtls_update_project_config, { desc = 'Update JDTLS p
 map('x', '<leader>ch', fns.git_history_for_selection, { desc = 'Git history for selection' })
 map('n', '<leader>lg', '<cmd>LazyGit<cr>', { desc = 'LazyGit' })
 map('n', '<leader>cj', '<cmd>TSJToggle<CR>', opts)
+map('n', '<leader>ct', '<cmd>TodoQuickFix<CR>', opts)
 
 
 

@@ -12,6 +12,7 @@ map('i', '<C-k>', '<Up>',      opts)
 map('i', '<C-l>', '<Right>',   opts)
 map('i', '<C-b>', '<C-Left>',  opts)
 map('i', '<C-f>', '<C-Right>', opts)
+map("i", "<C-d>", "<Del>",     opts)
 
 -- Terminal
 map('n', '<C-t>', ':terminal<CR>', opts)

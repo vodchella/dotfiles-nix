@@ -101,7 +101,19 @@ map('n', '<leader>ct', '<cmd>TodoQuickFix<CR>', opts)
 
 -- DAP (отладчик)
 local dap, dapui = require('dap'), require('dapui')
-dapui.setup()
+-- It must be here
+dapui.setup({
+  layouts = {
+    {
+      elements = {
+        { id = 'console', size = 0.6 },
+        { id = 'scopes',  size = 0.4 },
+      },
+      size = 0.3,
+      position = 'bottom',
+    },
+  }
+})
 
 -- Авто-открытие/закрытие UI
 dap.listeners.after.event_initialized['dapui_config'] = function() dapui.open()  end
@@ -113,6 +125,9 @@ map('n', '<F8>',        dap.step_over,         { desc='DAP Step Over' })
 map('n', '<F7>',        dap.step_into,         { desc='DAP Step Into' })
 map('n', '<S-F8>',      dap.step_out,          { desc='DAP Step Out' })
 map('n', '<leader>db',  dap.toggle_breakpoint, { desc='DAP Toggle BP' })
+map('n', '<leader>df',  function()
+  dapui.float_element(nil, { enter = true })
+end, { desc='DAPUI open float window' })
 map('n', '<leader>dB',  function()
   vim.ui.input({ prompt = 'Condition: ' }, function(cond)
     if cond then dap.set_breakpoint(cond) end

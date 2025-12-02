@@ -25,6 +25,7 @@
     ripgrep
     rlwrap
     tldr
+    unzip
     xclip
   ];
 

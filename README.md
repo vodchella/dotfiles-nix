@@ -12,5 +12,6 @@ Installation
 
 Resources
 -------------
+* https://www.nixhub.io
 * https://search.nixos.org/packages
 * https://github.com/nix-community/home-manager/tree/master/modules/programs

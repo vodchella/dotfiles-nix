@@ -40,4 +40,9 @@
     source = ./neovim;
     recursive = true;
   };
+
+  home.file.".config/nix" = {
+    source = ./nix;
+    recursive = true;
+  };
 }

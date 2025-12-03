@@ -165,7 +165,7 @@ return require('packer').startup(function(use)
             require('mason-lspconfig').setup({
                 ensure_installed = {
                     'jdtls',
-                    'ocamllsp',
+                    -- 'ocamllsp',
                 },
                 automatic_installation = true,
             })

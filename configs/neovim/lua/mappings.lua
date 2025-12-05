@@ -19,7 +19,7 @@ map('n', '<C-t>', ':terminal<CR>', opts)
 map('t', '<C-i>', [[<C-\><C-n>]], opts)
 
 -- FZF
-map('n', '<C-l>', ':Lines<CR>', opts)
+map('n', '<C-l>', ':Rg<CR>', opts)
 map('n', '<C-m>', ':Marks<CR>', opts)
 map('n', '<C-f>', ':Files<CR>', opts)
 map('n', '<C-b>', ':Buffers<CR>', opts)

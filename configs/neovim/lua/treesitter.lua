@@ -16,7 +16,7 @@ require'nvim-treesitter.configs'.setup {
         'ocaml',
         'ocaml_interface',
         -- 'pascal',
-        -- 'python',
+        'python',
         -- 'regex',
         -- 'rust',
         'sql',

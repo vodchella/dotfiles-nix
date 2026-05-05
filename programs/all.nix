@@ -16,6 +16,7 @@
   home.packages = with pkgs; [
     checkstyle
     direnv
+    fd
     fontconfig
     gcc
     lazygit

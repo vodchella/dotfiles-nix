@@ -13,6 +13,7 @@
     t   = "tmux";
     v   = "nvim";
     vv  = "nvr -s";
+    vr  = "nvr";
     vt  = /*fish*/ "nvim -c terminal";
   };
 }

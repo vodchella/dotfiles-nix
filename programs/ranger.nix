@@ -10,6 +10,7 @@
     };
     mappings = {
       v = "shell nvim %s";
+      V = "shell nvr %s";
       a = "mark_files all=True toggle=True";
       r = "rename_append";
       gc = "cd ${configDir}";

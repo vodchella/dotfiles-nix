@@ -34,12 +34,15 @@ set.scrolloff = 5
 set.termguicolors = true
 vim.cmd[[colorscheme gruvbox]]
 
-vim.env.FZF_DEFAULT_COMMAND =
-  "find . -type f \\( " ..
-  "! -path './target/*' " ..
-  "! -path './bin/*' " ..
-  "! -path './build/*' " ..
-  "! -path './.git/*' " ..
-  "! -name '*.class' " ..
-  "! -name '*.jar' " ..
-  "\\)"
+vim.env.FZF_DEFAULT_COMMAND = "fd --type file"
+vim.g.fzf_preview_window = {}
+
+-- vim.env.FZF_DEFAULT_COMMAND =
+--   "find . -type f \\( " ..
+--   "! -path './target/*' " ..
+--   "! -path './bin/*' " ..
+--   "! -path './build/*' " ..
+--   "! -path './.git/*' " ..
+--   "! -name '*.class' " ..
+--   "! -name '*.jar' " ..
+--   "\\)"

@@ -177,13 +177,13 @@ return require('packer').startup(function(use)
         'mfussenegger/nvim-dap',
         config = function()
             require('dap').configurations.java = {
-              {
-                type = 'java',
-                request = 'attach',
-                name = "Attach to JVM",
-                hostName = "localhost",
-                port = 5005
-              },
+              -- {
+              --   type = 'java',
+              --   request = 'attach',
+              --   name = "Attach to JVM",
+              --   hostName = "localhost",
+              --   port = 5005
+              -- },
             }
         end
     }

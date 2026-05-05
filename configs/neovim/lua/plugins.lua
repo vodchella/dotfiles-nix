@@ -224,7 +224,6 @@ return require('packer').startup(function(use)
     }
 
     -- Other
-    use 'szw/vim-maximizer'
     use {
         'vodchella/hodur.nvim',
         config = function()

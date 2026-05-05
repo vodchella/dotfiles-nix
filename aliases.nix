@@ -11,7 +11,7 @@
     p   = "run-posting";
     r   = /*fish*/ "ranger --choosedir=$HOME/.config/ranger/.rangerdir; cd (cat $HOME/.config/ranger/.rangerdir)";
     t   = "tmux";
-    v   = "nvim";
+    v   = "nvr -s";
     vt  = /*fish*/ "nvim -c terminal";
   };
 }

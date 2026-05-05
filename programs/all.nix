@@ -21,6 +21,7 @@
     lazygit
     most
     neofetch
+    neovim-remote
     openssh
     posting
     ripgrep

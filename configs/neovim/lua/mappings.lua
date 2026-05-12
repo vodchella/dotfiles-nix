@@ -25,9 +25,9 @@ map('n', '<C-f>', ':Files<CR>', opts)
 map('n', '<C-b>', ':Buffers<CR>', opts)
 
 -- Easy align
-map('n', '<C-b>', ':Buffers<CR>', opts)
 map('x', 'ga', '<Plug>(EasyAlign)')
 map('n', 'ga', '<Plug>(EasyAlign)')
+map('v', 'gA', ':EasyAlign //<Left>')
 
 -- Database
 map('n', '<leader>qq', ':DBUIToggle<CR>', opts)

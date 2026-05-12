@@ -19,6 +19,7 @@ return require('packer').startup(function(use)
     -- Text editing
     use 'tpope/vim-sleuth'
     use 'mg979/vim-visual-multi'
+    use 'junegunn/vim-easy-align'
     use {
         'numToStr/Comment.nvim',
         config = function()

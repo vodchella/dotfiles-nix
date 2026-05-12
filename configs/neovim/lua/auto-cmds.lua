@@ -2,9 +2,9 @@
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "qf",
   callback = function(ev)
-    pcall(vim.keymap.del, "n", "<CR>", { buffer = ev.buf })
-    pcall(vim.keymap.del, "i", "<CR>", { buffer = ev.buf })
-    pcall(vim.keymap.del, "v", "<CR>", { buffer = ev.buf })
+    pcall(vim.keymap.del, "n", "<CR>",  { buffer = ev.buf })
+    pcall(vim.keymap.del, "i", "<CR>",  { buffer = ev.buf })
+    pcall(vim.keymap.del, "v", "<CR>",  { buffer = ev.buf })
     -- на всякий случай явно зададим дефолт:
     vim.keymap.set("n", "<CR>", "<CR>", { buffer = ev.buf, noremap = true, silent = true })
   end,

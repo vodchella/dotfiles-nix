@@ -140,6 +140,9 @@ return require('packer').startup(function(use)
         end,
     }
 
+    -- Languages
+    use 'zenc-lang/zenc.vim'
+
     -- LSP and related
     use 'mfussenegger/nvim-jdtls'
     use {

@@ -63,6 +63,10 @@ map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opts)
 -- Hop (quick jumps)
 map("n", "<C-s>", "<cmd>HopPattern<CR>", opts)
 
+-- Jumps
+map('n', '<C-Left>', '<C-o>', { desc = 'Jump back' })
+map('n', '<C-Right>', '<C-i>', { desc = 'Jump forward' })
+
 -- Hodur
 map('n', '<C-g>', function()
   local ok, api = pcall(require, 'hodur')

@@ -115,6 +115,12 @@ return require('packer').startup(function(use)
             require('bufferline').setup({})
         end
     }
+    use {
+        'tiagovla/scope.nvim',
+        config = function()
+          require('scope').setup({})
+        end
+    }
     use({
         'kdheepak/lazygit.nvim',
         -- optional for floating window border decoration

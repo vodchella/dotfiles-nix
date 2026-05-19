@@ -15,6 +15,7 @@ map('i', '<C-f>', '<C-Right>', opts)
 map("i", "<C-d>", "<Del>",     opts)
 
 -- Terminal
+-- map('n', '<C-t>', ':tabnew | terminal<CR>', opts)
 map('n', '<C-t>', ':terminal<CR>', opts)
 map('t', '<C-i>', [[<C-\><C-n>]], opts)
 

@@ -12,18 +12,18 @@ vim.api.nvim_create_autocmd("FileType", {
 
 
 -- Ловим смену директории в терминале
-vim.api.nvim_create_autocmd('TermRequest', {
-    callback = function(ev)
-        local val = ev.data.sequence
-
-        local prefix = '\027]7;file://'
-
-        if vim.startswith(val, prefix) then
-            local dir = val:gsub('\027]7;file://[^/]*', '')
-            vim.cmd('tcd ' .. vim.fn.fnameescape(dir))
-        end
-    end,
-})
+-- vim.api.nvim_create_autocmd('TermRequest', {
+--     callback = function(ev)
+--         local val = ev.data.sequence
+--
+--         local prefix = '\027]7;file://'
+--
+--         if vim.startswith(val, prefix) then
+--             local dir = val:gsub('\027]7;file://[^/]*', '')
+--             vim.cmd('tcd ' .. vim.fn.fnameescape(dir))
+--         end
+--     end,
+-- })
 
 
 vim.api.nvim_create_autocmd("TermOpen", {

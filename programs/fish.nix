@@ -3,26 +3,26 @@
 {
   programs.fish = {
     enable = true;
-    package = pkgs.fish.overrideAttrs (oldAttrs: {
-      version = "4.1.0";
-      src = pkgs.fetchurl {
-        url = "https://github.com/fish-shell/fish-shell/releases/download/4.1.0/fish-4.1.0.tar.xz";
-        sha256 = "07a76c67e161b9edc772e6f1d66ebead85d7056e86631d61577f9f9a529c4d9c";
-        # url = "https://github.com/fish-shell/fish-shell/releases/download/3.7.1/fish-3.7.1.tar.xz";
-        # sha256 = "614c9f5643cd0799df391395fa6bbc3649427bb839722ce3b114d3bbc1a3b250";
-      };
-      doCheck = false;
-      doInstallCheck = false;
-      doTest = false;
-      buildInputs = oldAttrs.buildInputs ++ [ pkgs.ncurses ];
-      cmakeFlags = (oldAttrs.cmakeFlags or []) ++ [ "-DBUILD_TESTING=OFF" ];
-      patchPhase = ''
-        echo "Skipping patchPhase"
-      '';
-      checkPhase = ''
-        echo "Skipping checkPhase"
-      '';
-    });
+    # package = pkgs.fish.overrideAttrs (oldAttrs: {
+    #   version = "4.1.0";
+    #   src = pkgs.fetchurl {
+    #     url = "https://github.com/fish-shell/fish-shell/releases/download/4.1.0/fish-4.1.0.tar.xz";
+    #     sha256 = "07a76c67e161b9edc772e6f1d66ebead85d7056e86631d61577f9f9a529c4d9c";
+    #     # url = "https://github.com/fish-shell/fish-shell/releases/download/3.7.1/fish-3.7.1.tar.xz";
+    #     # sha256 = "614c9f5643cd0799df391395fa6bbc3649427bb839722ce3b114d3bbc1a3b250";
+    #   };
+    #   doCheck = false;
+    #   doInstallCheck = false;
+    #   doTest = false;
+    #   buildInputs = oldAttrs.buildInputs ++ [ pkgs.ncurses ];
+    #   cmakeFlags = (oldAttrs.cmakeFlags or []) ++ [ "-DBUILD_TESTING=OFF" ];
+    #   patchPhase = ''
+    #     echo "Skipping patchPhase"
+    #   '';
+    #   checkPhase = ''
+    #     echo "Skipping checkPhase"
+    #   '';
+    # });
 
     shellInit = /*fish*/ ''
       set -gx fish_greeting 'Hello, Max!'
@@ -52,7 +52,11 @@
 
       if not set -q TMUX
         if set -q RUN_TMUX_ON_FISH_STARTUP; and test "$RUN_TMUX_ON_FISH_STARTUP" = "1"
-          exec tmux
+          if test -x /usr/bin/tmux
+              exec /usr/bin/tmux
+          else
+              exec tmux
+          end
         end
       end
 

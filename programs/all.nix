@@ -21,7 +21,7 @@
     gcc
     lazygit
     most
-    neofetch
+    fastfetch
     neovim-remote
     openssh
     posting

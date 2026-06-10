@@ -163,7 +163,7 @@ return require('packer').startup(function(use)
         config = function()
             require('mason-tool-installer').setup {
                 ensure_installed = {
-                    'ocamlformat',
+                    -- 'ocamlformat',
                 },
             }
         end

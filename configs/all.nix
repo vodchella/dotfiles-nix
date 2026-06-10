@@ -26,10 +26,10 @@
     recursive = true;
   };
 
-  home.file.".config/oh-my-posh" = {
-    source = ./oh-my-posh;
-    recursive = true;
-  };
+  # home.file.".config/oh-my-posh" = {
+  #   source = ./oh-my-posh;
+  #   recursive = true;
+  # };
 
   home.file.".config/fish/functions" = {
     source = ./fish/functions;

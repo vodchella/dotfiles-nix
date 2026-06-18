@@ -15,11 +15,15 @@ dap.configurations.odin = {
         type = 'codelldb',
         request = 'launch',
         program = function()
-            return vim.fn.input(
-                'Executable: ',
-                vim.fn.getcwd() .. '/.build/xogui',
-                'file'
-            )
+            if not vim.g.dap_executable then
+                vim.notify(
+                    'DAP executable is not configured. Set vim.g.dap_executable in .nvim.lua',
+                    vim.log.levels.ERROR,
+                    { title = 'nvim-dap' }
+                )
+                return nil
+            end
+            return vim.g.dap_executable
         end,
         cwd = '${workspaceFolder}',
         stopOnEntry = false,

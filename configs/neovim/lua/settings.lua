@@ -30,6 +30,10 @@ set.clipboard = 'unnamedplus'
 set.cursorline = true
 set.scrolloff = 5
 
+-- Enable project-local config
+set.exrc = true
+set.secure = true
+
 
 set.termguicolors = true
 vim.cmd[[colorscheme gruvbox]]

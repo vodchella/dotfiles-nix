@@ -146,9 +146,6 @@ return require('packer').startup(function(use)
         end,
     }
 
-    -- Languages
-    use 'zenc-lang/zenc.vim'
-
     -- LSP and related
     use 'mfussenegger/nvim-jdtls'
     use {
@@ -201,18 +198,18 @@ return require('packer').startup(function(use)
         'rcarriga/nvim-dap-ui',
         requires = { 'mfussenegger/nvim-dap', 'nvim-neotest/nvim-nio' },
     }
-    -- Нифига этот Java-адаптер не ставится через конфиг, поставил руками через :Mason
-    -- use {  -- Mason для DAP
-    --     'jay-babu/mason-nvim-dap.nvim',
-    --     after = 'mason.nvim',
-    --     requires = { 'mfussenegger/nvim-dap' },
-    --     config = function()
-    --         require('mason-nvim-dap').setup({
-    --             ensure_installed = { 'java' },  -- Java Debug Adapter
-    --             automatic_installation = true,
-    --         })
-    --     end
-    -- }
+    -- Нифига этои адаптеры не ставятся через конфиг, поставил руками через :Mason
+    use {  -- Mason для DAP
+        'jay-babu/mason-nvim-dap.nvim',
+        after = 'mason.nvim',
+        requires = { 'mfussenegger/nvim-dap' },
+        config = function()
+            require('mason-nvim-dap').setup({
+                ensure_installed = { 'java-debug-adapter', 'codelldb' },
+                automatic_installation = true,
+            })
+        end
+    }
 
     -- Fuzzy searching
     use 'junegunn/fzf'

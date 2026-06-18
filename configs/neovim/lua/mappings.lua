@@ -148,7 +148,7 @@ map('n', '<leader>dq',  function()
   local dap = require('dap')
   local dapui = require('dapui')
 
-  -- Сначала остановить/отсоединиться от отладочной JVM
+  -- Сначала остановить/отсоединиться от отладочной сессии
   dap.terminate()
   dap.disconnect({ terminateDebuggee = true })
 

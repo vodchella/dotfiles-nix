@@ -7,4 +7,5 @@ require("treesitter")
 
 -- MUST be the last:
 require("user-cmds")
-require('auto-cmds')
+require("auto-cmds")
+require("dap-cfg")

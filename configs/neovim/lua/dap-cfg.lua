@@ -15,6 +15,8 @@ dap.configurations.odin = {
         type = 'codelldb',
         request = 'launch',
         program = function()
+            -- .nvim.lua:
+            -- vim.g.dap_executable = vim.fn.getcwd() .. '/.build/xogui'
             if not vim.g.dap_executable then
                 vim.notify(
                     'DAP executable is not configured. Set vim.g.dap_executable in .nvim.lua',

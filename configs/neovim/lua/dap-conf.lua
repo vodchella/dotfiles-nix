@@ -50,6 +50,8 @@ dap.configurations.ocaml = {
         program = get_dap_executable,
         cwd = '${workspaceFolder}',
         stopOnEntry = false,
+        onlyDebugGlob = '<${workspaceFolder}/**/*>',
+        yieldSteps = 1024,
     },
 }
 

@@ -27,6 +27,7 @@
     posting
     ripgrep
     rlwrap
+    serpl
     tldr
     unzip
     xclip

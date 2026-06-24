@@ -1,0 +1,18 @@
+style:
+    selected-row:
+        text-color: "#282828"
+        background-color: "#fabd2f"
+    marked:
+        text-color: "#282828"
+        background-color: "#b8bb26"
+    footer:
+        text-color: "#ebdbb2"
+        background-color: "#3c3836"
+        number-color: "#fabd2f"
+    header:
+        text-color: "#fabd2f"
+        background-color: "#282828"
+        hidden: false
+    result-row:
+        number-color: "#d3869b"
+        directory-color: "#83a598"

@@ -5,6 +5,10 @@
     source = ./.ideavimrc;
   };
 
+  home.file.".gdu.yaml" = {
+    source = ./.gdu.yaml;
+  };
+
   home.file.".config/regolith3/picom/config" = {
     source = ./picom/config;
   };

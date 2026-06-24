@@ -19,6 +19,7 @@
     fd
     fontconfig
     gcc
+    gdu
     lazygit
     most
     fastfetch

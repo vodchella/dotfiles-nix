@@ -1,4 +1,28 @@
-local dap = require('dap')
+local dap_status_ok, dap = pcall(require, 'dap')
+if not dap_status_ok then
+    return
+end
+local dapui_ok, dapui = pcall(require, 'dapui')
+if not dapui_ok then
+    return
+end
+
+dapui.setup({
+  layouts = {
+    {
+      elements = {
+        { id = 'console', size = 0.6 },
+        { id = 'scopes',  size = 0.4 },
+      },
+      size = 0.3,
+      position = 'bottom',
+    },
+  }
+})
+
+dap.listeners.after.event_initialized['dapui_config'] = function() dapui.open()  end
+dap.listeners.before.event_terminated['dapui_config'] = function() dapui.close() end
+dap.listeners.before.event_exited['dapui_config']     = function() dapui.close() end
 
 dap.adapters.codelldb = {
     type = 'server',

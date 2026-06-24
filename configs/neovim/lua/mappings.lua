@@ -34,28 +34,12 @@ map('v', 'gA', ':EasyAlign //<Left>')
 map('n', '<leader>qq', ':DBUIToggle<CR>', opts)
 
 -- File browser
-map("n", "-", require('oil').open_float, { desc = 'Open parent directory' })
+map("n", "-", fns.oil_open_float, { desc = 'Open directory' })
 
 -- Comments
 -- <C-/> обозначается в Lua как <C-_>.
-local comment_not_loaded = "Comment.nvim doesn't loadad, PackerSync will save you :)"
-map('n', '<C-_>', function()
-  local ok, api = pcall(require, 'Comment.api')
-  if not ok then
-    vim.notify(comment_not_loaded, vim.log.levels.WARN)
-    return
-  end
-  api.toggle.linewise.current()
-end, opts)
-map('v', '<C-_>', function()
-  local ok, api = pcall(require, 'Comment.api')
-  if not ok then
-    vim.notify(comment_not_loaded, vim.log.levels.WARN)
-    return
-  end
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<ESC>', true, false, true), 'nx', false)
-  api.toggle.linewise(vim.fn.visualmode())
-end, opts)
+map('n', '<C-_>', fns.comment_lines_n, opts)
+map('v', '<C-_>', fns.comment_lines_v, opts)
 
 -- Tab line
 map("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", opts)
@@ -69,14 +53,7 @@ map('n', '<C-Left>', '<C-o>', { desc = 'Jump back' })
 map('n', '<C-Right>', '<C-i>', { desc = 'Jump forward' })
 
 -- Hodur
-map('n', '<C-g>', function()
-  local ok, api = pcall(require, 'hodur')
-  if not ok then
-    vim.notify("Hodur.nvim doesn't loadad, PackerSync will save you :)", vim.log.levels.WARN)
-    return
-  end
-  api.open_under_cursor()
-end, opts)
+map('n', '<C-g>', fns.hodur_open_under_cursor, opts)
 
 -- Selected text moving
 map('v', '>', '>gv', opts)
@@ -111,59 +88,17 @@ map('n', '<leader>gt', '<cmd>TodoQuickFix<CR>', opts)
 
 
 -- DAP (отладчик)
-local dap, dapui = require('dap'), require('dapui')
--- It must be here
-dapui.setup({
-  layouts = {
-    {
-      elements = {
-        { id = 'console', size = 0.6 },
-        { id = 'scopes',  size = 0.4 },
-      },
-      size = 0.3,
-      position = 'bottom',
-    },
-  }
-})
+local dap_ok, dap   = pcall(require, 'dap')
+if dap_ok then
+  map('n', '<F9>',       dap.continue,            { desc = 'DAP Continue' })
+  map('n', '<F8>',       dap.step_over,           { desc = 'DAP Step Over' })
+  map('n', '<F7>',       dap.step_into,           { desc = 'DAP Step Into' })
+  map('n', '<S-F8>',     dap.step_out,            { desc = 'DAP Step Out' })
+  map('n', '<leader>db', dap.toggle_breakpoint,   { desc = 'DAP Toggle BP' })
+  map('n', '<leader>df', fns.dapui_float_element, { desc = 'DAPUI open float window' })
+  map('n', '<leader>dB', fns.dap_cond_breakpoint, { desc = 'DAP Conditional BP' })
+  map('n', '<leader>dq', fns.dapui_close,         { desc = 'Stop debug and close UI' })
+end
 
--- Авто-открытие/закрытие UI
-dap.listeners.after.event_initialized['dapui_config'] = function() dapui.open()  end
-dap.listeners.before.event_terminated['dapui_config'] = function() dapui.close() end
-dap.listeners.before.event_exited['dapui_config']     = function() dapui.close() end
-
-map('n', '<F9>',        dap.continue,          { desc='DAP Continue' })
-map('n', '<F8>',        dap.step_over,         { desc='DAP Step Over' })
-map('n', '<F7>',        dap.step_into,         { desc='DAP Step Into' })
-map('n', '<S-F8>',      dap.step_out,          { desc='DAP Step Out' })
-map('n', '<leader>db',  dap.toggle_breakpoint, { desc='DAP Toggle BP' })
-map('n', '<leader>df',  function()
-  dapui.float_element(nil, { enter = true })
-end, { desc='DAPUI open float window' })
-map('n', '<leader>dB',  function()
-  vim.ui.input({ prompt = 'Condition: ' }, function(cond)
-    if cond then dap.set_breakpoint(cond) end
-  end)
-end, { desc='DAP Conditional BP' })
-map('n', '<leader>dq',  function()
-  local dap = require('dap')
-  local dapui = require('dapui')
-
-  -- Сначала остановить/отсоединиться от отладочной сессии
-  dap.terminate()
-  dap.disconnect({ terminateDebuggee = true })
-
-  -- Затем закрыть интерфейс (панели, консоль, т.д.)
-  dapui.close()
-end, { desc = 'Stop debug and close UI' })
-
-
--- Checkstyle
-vim.api.nvim_create_user_command("Checkstyle", function()
-  if vim.bo.filetype == "java" then
-    require("checkstyle").run_current_file()
-  else
-    vim.notify("Checkstyle только для Java-файлов!", vim.log.levels.WARN)
-  end
-end, {})
-map("n", '<leader>cl', '<cmd>Checkstyle<cr>', { desc = 'Run linter' })
+map("n", '<leader>cl', '<cmd>Linter<cr>', { desc = 'Run linter' })
 

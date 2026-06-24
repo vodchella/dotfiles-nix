@@ -1,4 +1,8 @@
-require'nvim-treesitter.configs'.setup {
+local ok, treesitter_cfg = pcall(require, 'nvim-treesitter.configs')
+if not ok then
+    return
+end
+treesitter_cfg.setup {
     ensure_installed = {
         -- 'ada',
         'bash',

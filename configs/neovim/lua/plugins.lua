@@ -27,6 +27,12 @@ return require('packer').startup(function(use)
         end
     }
     use {
+        'nvim-mini/mini.ai',
+        config = function()
+          require('mini.ai').setup()
+        end
+    }
+    use {
         'nvim-mini/mini.surround',
         config = function()
           require('mini.surround').setup()

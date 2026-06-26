@@ -33,15 +33,21 @@ return require('packer').startup(function(use)
         end
     }
     use {
-        'nvim-mini/mini.surround',
+        'nvim-mini/mini.operators',
         config = function()
-          require('mini.surround').setup()
+          require('mini.operators').setup()
         end
     }
     use {
         'nvim-mini/mini.pairs',
         config = function()
           require('mini.pairs').setup()
+        end
+    }
+    use {
+        'nvim-mini/mini.surround',
+        config = function()
+          require('mini.surround').setup()
         end
     }
     use({

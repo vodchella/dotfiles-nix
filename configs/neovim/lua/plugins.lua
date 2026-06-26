@@ -27,18 +27,6 @@ return require('packer').startup(function(use)
         end
     }
     use {
-        'nvim-mini/mini.ai',
-        config = function()
-          require('mini.ai').setup()
-        end
-    }
-    use {
-        'nvim-mini/mini.operators',
-        config = function()
-          require('mini.operators').setup()
-        end
-    }
-    use {
         'nvim-mini/mini.pairs',
         config = function()
           require('mini.pairs').setup()
@@ -48,6 +36,20 @@ return require('packer').startup(function(use)
         'nvim-mini/mini.surround',
         config = function()
           require('mini.surround').setup()
+        end
+    }
+
+    -- Text commands
+    use {
+        'nvim-mini/mini.ai',
+        config = function()
+          require('mini.ai').setup()
+        end
+    }
+    use {
+        'nvim-mini/mini.operators',
+        config = function()
+          require('mini.operators').setup()
         end
     }
 
@@ -196,7 +198,6 @@ return require('packer').startup(function(use)
         'rcarriga/nvim-dap-ui',
         requires = { 'mfussenegger/nvim-dap', 'nvim-neotest/nvim-nio' },
     }
-    -- Нифига этои адаптеры не ставятся через конфиг, поставил руками через :Mason
     use {  -- Mason для DAP
         'jay-babu/mason-nvim-dap.nvim',
         after = 'mason.nvim',

@@ -81,10 +81,8 @@ map('x', '<leader>ch', fns.git_history_for_selection,   { desc = 'Git history fo
 map('n', '<leader>lg', '<cmd>LazyGit<cr>', { desc = 'LazyGit' })
 map('n', '<leader>gt', '<cmd>TodoQuickFix<CR>', opts)
 
-
-
 -- DAP (отладчик)
-local dap_ok, dap   = pcall(require, 'dap')
+local dap_ok, dap = pcall(require, 'dap')
 if dap_ok then
   map('n', '<F9>',       dap.continue,            { desc = 'DAP Continue' })
   map('n', '<F8>',       dap.step_over,           { desc = 'DAP Step Over' })
@@ -94,6 +92,29 @@ if dap_ok then
   map('n', '<leader>df', fns.dapui_float_element, { desc = 'DAPUI open float window' })
   map('n', '<leader>dB', fns.dap_cond_breakpoint, { desc = 'DAP Conditional BP' })
   map('n', '<leader>dq', fns.dapui_close,         { desc = 'Stop debug and close UI' })
+end
+
+local ok, cmp = pcall(require, 'cmp')
+if ok then
+  cmp.setup({
+    mapping = {
+        ['<Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
+
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
+    },
+})
 end
 
 map("n", '<leader>cl', '<cmd>Linter<cr>', { desc = 'Run linter' })

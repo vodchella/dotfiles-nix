@@ -17,7 +17,6 @@ map("i", "<C-d>", "<Del>",     opts)
 map("n", "<Esc>", ":noh<CR>",  opts)
 
 -- Terminal
--- map('n', '<C-t>', ':tabnew | terminal<CR>', opts)
 map('n', '<C-t>', ':terminal<CR>', opts)
 map('t', '<C-i>', [[<C-\><C-n>]], opts)
 
@@ -80,7 +79,6 @@ map('n', '<leader>cr', vim.lsp.buf.rename,         opts)
 map('n', '<leader>cJ', fns.jdtls_update_project_config, { desc = 'Update JDTLS project configuration' })
 map('x', '<leader>ch', fns.git_history_for_selection,   { desc = 'Git history for selection' })
 map('n', '<leader>lg', '<cmd>LazyGit<cr>', { desc = 'LazyGit' })
-map('n', '<leader>cj', '<cmd>TSJToggle<CR>',    opts)
 map('n', '<leader>gt', '<cmd>TodoQuickFix<CR>', opts)
 
 

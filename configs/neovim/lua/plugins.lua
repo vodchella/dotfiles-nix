@@ -50,15 +50,6 @@ return require('packer').startup(function(use)
           require('mini.surround').setup()
         end
     }
-    use({
-        'Wansmer/treesj',
-        requires = { 'nvim-treesitter/nvim-treesitter' },
-        config = function()
-          require('treesj').setup({
-              use_default_keymaps = false,
-          })
-        end,
-    })
 
     -- Completions
     use 'hrsh7th/nvim-cmp'

@@ -34,9 +34,5 @@ set.scrolloff = 5
 set.exrc = true
 set.secure = true
 
-
-set.termguicolors = true
-vim.cmd[[colorscheme gruvbox]]
-
 vim.env.FZF_DEFAULT_COMMAND = "fd --type file"
 vim.g.fzf_preview_window = {}

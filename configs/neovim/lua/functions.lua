@@ -145,4 +145,12 @@ function M.dap_cond_breakpoint()
   end)
 end
 
+function M.lsp_buf_hover()
+    vim.lsp.buf.hover({
+        border = 'rounded',
+        title = ' LSP info: ',
+        title_pos = 'center',
+    })
+end
+
 return M

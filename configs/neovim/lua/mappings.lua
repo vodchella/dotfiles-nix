@@ -14,15 +14,17 @@ map('i', '<C-b>', '<C-Left>',  opts)
 map('i', '<C-f>', '<C-Right>', opts)
 map("i", "<C-d>", "<Del>",     opts)
 
+map("n", "<Esc>", ":noh<CR>",  opts)
+
 -- Terminal
 -- map('n', '<C-t>', ':tabnew | terminal<CR>', opts)
 map('n', '<C-t>', ':terminal<CR>', opts)
 map('t', '<C-i>', [[<C-\><C-n>]], opts)
 
 -- FZF
-map('n', '<C-l>', ':Rg<CR>', opts)
-map('n', '<C-m>', ':Marks<CR>', opts)
-map('n', '<C-f>', ':Files<CR>', opts)
+map('n', '<C-l>', ':Rg<CR>',      opts)
+map('n', '<C-m>', ':Marks<CR>',   opts)
+map('n', '<C-f>', ':Files<CR>',   opts)
 map('n', '<C-b>', ':Buffers<CR>', opts)
 
 -- Easy align
@@ -42,15 +44,11 @@ map('n', '<C-_>', fns.comment_lines_n, opts)
 map('v', '<C-_>', fns.comment_lines_v, opts)
 
 -- Tab line
-map("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", opts)
+map("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>",   opts)
 map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opts)
 
 -- Hop (quick jumps)
 map("n", "<C-s>", "<cmd>HopPattern<CR>", opts)
-
--- Jumps
-map('n', '<C-Left>', '<C-o>', { desc = 'Jump back' })
-map('n', '<C-Right>', '<C-i>', { desc = 'Jump forward' })
 
 -- Hodur
 map('n', '<C-g>', fns.hodur_open_under_cursor, opts)
@@ -69,20 +67,20 @@ map('n', '<C-c>', function()
 end, opts)
 
 -- LSP and coding related
-map('n', '<leader>e',  vim.diagnostic.open_float, opts)
-map('n', '<leader>E',  vim.diagnostic.setloclist, opts)
-map('n', '<leader>gd', vim.lsp.buf.definition, opts)
-map('n', '<leader>gD', vim.lsp.buf.declaration, opts)
+map('n', '<leader>e',  vim.diagnostic.open_float,  opts)
+map('n', '<leader>E',  vim.diagnostic.setloclist,  opts)
+map('n', '<leader>gd', vim.lsp.buf.definition,     opts)
+map('n', '<leader>gD', vim.lsp.buf.declaration,    opts)
 map('n', '<leader>gi', vim.lsp.buf.implementation, opts)
-map('n', '<leader>gr', vim.lsp.buf.references, opts)
-map('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+map('n', '<leader>gr', vim.lsp.buf.references,     opts)
+map('n', '<leader>ca', vim.lsp.buf.code_action,    opts)
 map('n', '<leader>gs', '<cmd>DocumentSymbols<cr>', opts)
-map('n', '<leader>ci', fns.lsp_buf_hover, opts)
-map('n', '<leader>cr', vim.lsp.buf.rename, opts)
+map('n', '<leader>ci', fns.lsp_buf_hover,          opts)
+map('n', '<leader>cr', vim.lsp.buf.rename,         opts)
 map('n', '<leader>cJ', fns.jdtls_update_project_config, { desc = 'Update JDTLS project configuration' })
-map('x', '<leader>ch', fns.git_history_for_selection, { desc = 'Git history for selection' })
+map('x', '<leader>ch', fns.git_history_for_selection,   { desc = 'Git history for selection' })
 map('n', '<leader>lg', '<cmd>LazyGit<cr>', { desc = 'LazyGit' })
-map('n', '<leader>cj', '<cmd>TSJToggle<CR>', opts)
+map('n', '<leader>cj', '<cmd>TSJToggle<CR>',    opts)
 map('n', '<leader>gt', '<cmd>TodoQuickFix<CR>', opts)
 
 

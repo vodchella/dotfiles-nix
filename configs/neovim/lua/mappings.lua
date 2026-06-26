@@ -17,7 +17,8 @@ map("i", "<C-d>", "<Del>",     opts)
 map("n", "<Esc>", ":noh<CR>",  opts)
 
 -- Terminal
-map('n', '<C-t>', ':terminal<CR>', opts)
+-- map('n', '<C-t>', ':terminal<CR>', opts)
+map('n', '<C-t>', ':ToggleTerm direction=float<CR>', opts)
 map('t', '<C-i>', [[<C-\><C-n>]], opts)
 
 -- FZF

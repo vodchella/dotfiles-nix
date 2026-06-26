@@ -58,9 +58,6 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-nvim-lsp'
-    -- use 'hrsh7th/cmp-nvim-lua'
-    -- use 'saadparwaiz1/cmp_luasnip'
-    -- use 'L3MON4D3/LuaSnip'
 
     -- Look and feel
     use 'machakann/vim-highlightedyank'
@@ -69,7 +66,10 @@ return require('packer').startup(function(use)
     use 'kyazdani42/nvim-web-devicons'
 
     use 'rcarriga/nvim-notify'
-    vim.notify = require("notify")
+    local ok, notify = pcall(require, 'notify')
+    if ok then
+        vim.notify = notify
+    end
 
     -- Highlighting
     use 'nvim-treesitter/nvim-treesitter'
@@ -128,6 +128,18 @@ return require('packer').startup(function(use)
             'nvim-lua/plenary.nvim',
         },
     })
+    use{
+        "akinsho/toggleterm.nvim", tag = '*',
+        config = function()
+            require("toggleterm").setup({
+                on_open = function(term)
+                    vim.cmd('startinsert')
+                    vim.wo.number = true
+                    vim.wo.relativenumber = true
+                end,
+            })
+        end
+    }
 
     -- File browser
     use {

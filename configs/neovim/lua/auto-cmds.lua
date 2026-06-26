@@ -34,6 +34,18 @@ vim.api.nvim_create_autocmd("TermOpen", {
     end,
 })
 
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'java',
+    callback = function()
+        local ok, _ = pcall(require, 'mini.pairs')
+        if not ok then
+            return
+        end
+        MiniPairs.map_buf(0, 'i', '<', { action = 'open',  pair = '<>', neigh_pattern = '[^\\].', })
+        MiniPairs.map_buf(0, 'i', '>', { action = 'close', pair = '<>', neigh_pattern = '[^\\].', })
+    end,
+})
+
 
 vim.cmd [[
   highlight ExtraWhitespace ctermbg=red guibg=red

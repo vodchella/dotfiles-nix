@@ -29,6 +29,11 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd({ 'TermOpen', 'TermEnter' }, {
     pattern = "*",
     callback = function()
+        vim.keymap.set('t', '<Tab>', '<Tab>', {
+            buffer  = true,
+            noremap = true,
+            silent  = true,
+        })
         vim.cmd("startinsert")
         vim.opt_local.relativenumber = true
     end,

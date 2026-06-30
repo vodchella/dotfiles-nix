@@ -128,18 +128,6 @@ return require('packer').startup(function(use)
             'nvim-lua/plenary.nvim',
         },
     })
-    use{
-        "akinsho/toggleterm.nvim", tag = '*',
-        config = function()
-            require("toggleterm").setup({
-                on_open = function(term)
-                    vim.cmd('startinsert')
-                    vim.wo.number = true
-                    vim.wo.relativenumber = true
-                end,
-            })
-        end
-    }
 
     -- File browser
     use {

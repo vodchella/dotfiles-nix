@@ -4,7 +4,7 @@
   imports = [
     ./git.nix
     ./htop.nix
-    ./fish.nix
+    ./fish.nix  # /home/vodchella/.nix-profile/bin/fish
     ./fzf.nix
     ./neovim.nix
     ./oh-my-posh.nix

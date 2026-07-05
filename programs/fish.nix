@@ -25,7 +25,7 @@
     # });
 
     shellInit = /*fish*/ ''
-      set -gx fish_greeting 'Hello, Max!'
+      set -gx fish_greeting 'Hello, Vodchella!'
       set -gx LANG en_US.UTF-8
       set -gx LC_ALL en_US.UTF-8
 

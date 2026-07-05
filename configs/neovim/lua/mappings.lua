@@ -17,8 +17,7 @@ map("i", "<C-d>", "<Del>",     opts)
 map("n", "<Esc>", ":noh<CR>",  opts)
 
 -- Terminal
-map('n', '<C-t>', ':terminal<CR>', opts)
-map('t', '<C-q>', [[<C-\><C-n>]],  opts)
+map({'n', 't'}, '<C-t>', fns.toggle_terminal_mode, opts)
 
 -- FZF
 map('n', '<C-l>', ':Rg<CR>',      opts)

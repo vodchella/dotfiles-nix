@@ -153,4 +153,19 @@ function M.lsp_buf_hover()
     })
 end
 
+function M.toggle_terminal_mode()
+    if vim.bo.buftype ~= 'terminal' then
+        vim.cmd('terminal')
+        return
+    end
+
+    local mode = vim.api.nvim_get_mode().mode
+
+    if mode == 't' then
+        vim.cmd('stopinsert')
+    else
+        vim.cmd('startinsert')
+    end
+end
+
 return M

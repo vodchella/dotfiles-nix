@@ -20,6 +20,12 @@ vim.api.nvim_create_autocmd({ 'TermOpen', 'TermEnter' }, {
             silent  = true,
         })
         vim.cmd("startinsert")
+        vim.opt_local.relativenumber = false
+    end,
+})
+vim.api.nvim_create_autocmd('TermLeave', {
+    pattern = '*',
+    callback = function()
         vim.opt_local.relativenumber = true
     end,
 })

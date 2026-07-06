@@ -4,3 +4,8 @@ show_hidden  = true
 linemode     = "size"
 sort_by      = "natural"
 sort_dir_first = true
+
+[preview]
+max_width  = 1000
+max_height = 700
+image_delay = 10

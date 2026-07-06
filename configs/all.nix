@@ -49,4 +49,9 @@
     source = ./nix;
     recursive = true;
   };
+
+  home.file.".config/ghostty" = {
+    source = ./ghostty;
+    recursive = true;
+  };
 }

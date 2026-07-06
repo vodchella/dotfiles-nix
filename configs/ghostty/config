@@ -1,0 +1,7 @@
+theme = Gruvbox Dark
+font-family = "Terminess Nerd Font Mono"
+font-size = 16
+confirm-close-surface = false
+window-decoration = none
+mouse-scroll-multiplier = discrete:0.25
+keybind = ctrl+slash=text:\x1f

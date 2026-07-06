@@ -40,6 +40,7 @@ in
 
       set  -g base-index 1
       setw -g pane-base-index 1
+      set -g renumber-windows on
 
       # Общий стиль статусбара
       set-option -g status-position bottom

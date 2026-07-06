@@ -15,6 +15,7 @@ map('i', '<C-f>', '<C-Right>', opts)
 map("i", "<C-d>", "<Del>",     opts)
 
 map("n", "<Esc>", ":noh<CR>",  opts)
+map('x', 'p', [["_dP]], opts)
 
 -- Terminal
 map({'n', 't'}, '<C-t>', fns.toggle_terminal_mode, opts)

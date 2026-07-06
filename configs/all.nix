@@ -54,4 +54,9 @@
     source = ./ghostty;
     recursive = true;
   };
+
+  home.file.".config/yazi" = {
+    source = ./yazi;
+    recursive = true;
+  };
 }

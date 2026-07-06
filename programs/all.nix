@@ -32,6 +32,7 @@
     tldr
     unzip
     xclip
+    yazi
   ];
 
   programs = {

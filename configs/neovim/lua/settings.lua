@@ -1,3 +1,5 @@
+require('vim._core.ui2').enable()
+
 local set = vim.opt
 
 set.langmap        = 'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz'

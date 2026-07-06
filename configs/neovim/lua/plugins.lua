@@ -1,245 +1,118 @@
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
-end
-
-local packer_bootstrap = ensure_packer()
-
-return require('packer').startup(function(use)
-    -- Packer can manage itself
-    --
-    use 'wbthomason/packer.nvim'
-
+vim.pack.add({
     -- Text editing
-    use 'tpope/vim-sleuth'
-    use 'mg979/vim-visual-multi'
-    use 'junegunn/vim-easy-align'
-    use {
-        'numToStr/Comment.nvim',
-        config = function()
-          require('Comment').setup()
-        end
-    }
-    use {
-        'nvim-mini/mini.pairs',
-        config = function()
-          require('mini.pairs').setup()
-        end
-    }
-    use {
-        'nvim-mini/mini.surround',
-        config = function()
-          require('mini.surround').setup()
-        end
-    }
-
+    'https://github.com/tpope/vim-sleuth',
+    'https://github.com/mg979/vim-visual-multi',
+    'https://github.com/junegunn/vim-easy-align',
+    'https://github.com/numToStr/Comment.nvim',
+    'https://github.com/nvim-mini/mini.pairs',
+    'https://github.com/nvim-mini/mini.surround',
     -- Text commands
-    use {
-        'nvim-mini/mini.ai',
-        config = function()
-          require('mini.ai').setup()
-        end
-    }
-    use {
-        'nvim-mini/mini.operators',
-        config = function()
-          require('mini.operators').setup()
-        end
-    }
-
+    'https://github.com/nvim-mini/mini.ai',
+    'https://github.com/nvim-mini/mini.operators',
     -- Completions
-    use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-nvim-lsp'
-
+    'https://github.com/hrsh7th/nvim-cmp',
+    'https://github.com/hrsh7th/cmp-buffer',
+    'https://github.com/hrsh7th/cmp-path',
+    'https://github.com/hrsh7th/cmp-nvim-lsp',
     -- Look and feel
-    use 'machakann/vim-highlightedyank'
-    use 'morhetz/gruvbox'
-    use 'ap/vim-css-color'
-    use 'kyazdani42/nvim-web-devicons'
-
-    use 'rcarriga/nvim-notify'
-    local ok, notify = pcall(require, 'notify')
-    if ok then
-        vim.notify = notify
-    end
-
-    -- Highlighting
-    use 'nvim-treesitter/nvim-treesitter'
-    use {
-      'folke/todo-comments.nvim',
-      requires = 'nvim-lua/plenary.nvim',
-      config = function()
-        require('todo-comments').setup {
-            highlight = {
-                keyword = "bg",
-                pattern = [[.*<(KEYWORDS)\s*]],
-                comments_only = true,
-              },
-              search = {
-                pattern = [[\b(KEYWORDS)\b]],
-              },
-        }
-      end
-    }
-    -- use({
-    --     'MeanderingProgrammer/render-markdown.nvim',
-    --     after = { 'nvim-treesitter' },
-    --     requires = { 'nvim-tree/nvim-web-devicons', opt = true },
-    --     config = function()
-    --         require('render-markdown').setup({})
-    --     end,
-    -- })
-
+    'https://github.com/machakann/vim-highlightedyank',
+    'https://github.com/morhetz/gruvbox',
+    'https://github.com/ap/vim-css-color',
+    'https://github.com/nvim-tree/nvim-web-devicons',
+    'https://github.com/rcarriga/nvim-notify',
+    'https://github.com/nvim-treesitter/nvim-treesitter',
+    'https://github.com/nvim-lua/plenary.nvim',
+    'https://github.com/folke/todo-comments.nvim',
     -- Widgets
-    use 'vimpostor/vim-tpipeline'
-    use 'nvim-lualine/lualine.nvim'
-    use {'kevinhwang91/nvim-bqf', ft = 'qf'}
-    use {
-        'vodchella/quicker.nvim',
-        config = function()
-          require('quicker').setup()
-        end
-    }
-    use {
-        'akinsho/bufferline.nvim',
-        tag = "*",
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true },
-        config = function()
-            require('bufferline').setup({})
-        end
-    }
-    use {
-        'tiagovla/scope.nvim',
-        config = function()
-          require('scope').setup({})
-        end
-    }
-    use({
-        'kdheepak/lazygit.nvim',
-        -- optional for floating window border decoration
-        requires = {
-            'nvim-lua/plenary.nvim',
-        },
-    })
+    'https://github.com/vimpostor/vim-tpipeline',
+    'https://github.com/nvim-lualine/lualine.nvim',
+    'https://github.com/kevinhwang91/nvim-bqf',
+    'https://github.com/vodchella/quicker.nvim',
+    'https://github.com/akinsho/bufferline.nvim',
+    'https://github.com/tiagovla/scope.nvim',
+    'https://github.com/kdheepak/lazygit.nvim',
+    'https://github.com/stevearc/oil.nvim',
+    -- LSP and related
+    'https://github.com/mfussenegger/nvim-jdtls',
+    'https://github.com/williamboman/mason.nvim',
+    'https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim',
+    'https://github.com/williamboman/mason-lspconfig.nvim',
+    -- DAP (отладчик)
+    'https://github.com/mfussenegger/nvim-dap',
+    'https://github.com/nvim-neotest/nvim-nio',
+    'https://github.com/rcarriga/nvim-dap-ui',
+    'https://github.com/jay-babu/mason-nvim-dap.nvim',
+    -- Fuzzy searching
+    'https://github.com/junegunn/fzf',
+    'https://github.com/junegunn/fzf.vim',
+    'https://github.com/vodchella/fzf-lsp.nvim',
+    -- Quick jumpling
+    'https://github.com/smoka7/hop.nvim',
+    'https://github.com/vodchella/hodur.nvim',
+            -- Database support
+            -- 'tpope/vim-dadbod',
+            -- 'kristijanhusak/vim-dadbod-ui',
+            -- 'kristijanhusak/vim-dadbod-completion',
+})
 
-    -- File browser
-    use {
-        'stevearc/oil.nvim',
-        config = function()
-            require('oil').setup({
-                default_file_explorer = true,
-                view_options = {
-                    show_hidden = true,
-                    is_hidden_file = function(name, bufnr)
-                      local m = name:match("^%.")
-                      return m ~= nil
-                    end,
-                }
-            })
+require('Comment').setup {}
+require('mini.pairs').setup {}
+require('mini.surround').setup {}
+require('mini.ai').setup {}
+require('mini.operators').setup {}
+require('todo-comments').setup {
+    highlight = {
+        keyword = "bg",
+        pattern = [[.*<(KEYWORDS)\s*]],
+        comments_only = true,
+      },
+      search = {
+        pattern = [[\b(KEYWORDS)\b]],
+      },
+}
+require('quicker').setup {}
+require('bufferline').setup {}
+require('scope').setup {}
+require('oil').setup {
+    default_file_explorer = true,
+    view_options = {
+        show_hidden = true,
+        is_hidden_file = function(name, bufnr)
+            local m = name:match("^%.")
+            return m ~= nil
         end,
     }
+}
+require('mason').setup {}
+require('mason-tool-installer').setup {
+    ensure_installed = {
+        -- 'ocamlformat',
+    },
+}
+require('mason-lspconfig').setup {
+    ensure_installed = {
+        'jdtls',
+        -- 'ocamllsp',
+    },
+    automatic_installation = true,
+}
+require('dap').configurations.java = {
+    -- {
+    --   type = 'java',
+    --   request = 'attach',
+    --   name = "Attach to JVM",
+    --   hostName = "localhost",
+    --   port = 5005
+    -- },
+}
+require('mason-nvim-dap').setup {
+    ensure_installed = { 'java-debug-adapter', 'codelldb' },
+    automatic_installation = true,
+}
+require('hop').setup { keys = 'etovxqpdygfblzhckisuran' }
+require('hodur').setup {}
 
-    -- LSP and related
-    use 'mfussenegger/nvim-jdtls'
-    use {
-        'williamboman/mason.nvim',
-        config = function()
-            require('mason').setup()
-        end
-    }
-    use {
-        'WhoIsSethDaniel/mason-tool-installer.nvim',
-        after = 'mason.nvim',
-        config = function()
-            require('mason-tool-installer').setup {
-                ensure_installed = {
-                    -- 'ocamlformat',
-                },
-            }
-        end
-    }
-    use {
-        'williamboman/mason-lspconfig.nvim',
-        after = 'mason.nvim',
-        config = function()
-            require('mason-lspconfig').setup({
-                ensure_installed = {
-                    'jdtls',
-                    -- 'ocamllsp',
-                },
-                automatic_installation = true,
-            })
-        end
-    }
-
-    -- DAP (отладчик)
-    use {
-        'mfussenegger/nvim-dap',
-        config = function()
-            require('dap').configurations.java = {
-              -- {
-              --   type = 'java',
-              --   request = 'attach',
-              --   name = "Attach to JVM",
-              --   hostName = "localhost",
-              --   port = 5005
-              -- },
-            }
-        end
-    }
-    use {
-        'rcarriga/nvim-dap-ui',
-        requires = { 'mfussenegger/nvim-dap', 'nvim-neotest/nvim-nio' },
-    }
-    use {  -- Mason для DAP
-        'jay-babu/mason-nvim-dap.nvim',
-        after = 'mason.nvim',
-        requires = { 'mfussenegger/nvim-dap' },
-        config = function()
-            require('mason-nvim-dap').setup({
-                ensure_installed = { 'java-debug-adapter', 'codelldb' },
-                automatic_installation = true,
-            })
-        end
-    }
-
-    -- Fuzzy searching
-    use 'junegunn/fzf'
-    use 'junegunn/fzf.vim'
-    use 'vodchella/fzf-lsp.nvim'
-
-    -- Database support
-    use 'tpope/vim-dadbod'
-    use 'kristijanhusak/vim-dadbod-ui'
-    use 'kristijanhusak/vim-dadbod-completion'
-
-    -- Quick jumpling
-    use {
-      'smoka7/hop.nvim',
-      tag = '*',
-      config = function()
-        require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-      end
-    }
-
-    -- Other
-    use {
-        'vodchella/hodur.nvim',
-        config = function()
-            require('hodur').setup({})
-        end
-    }
-
-    if packer_bootstrap then
-      require('packer').sync()
-    end
-
-end)
+local ok, notify = pcall(require, 'notify')
+if ok then
+    vim.notify = notify
+end

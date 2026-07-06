@@ -1,5 +1,6 @@
 local ok, treesitter_cfg = pcall(require, 'nvim-treesitter.configs')
 if not ok then
+    vim.notify('Treesitter config is not ok', vim.log.levels.WARN)
     return
 end
 treesitter_cfg.setup {

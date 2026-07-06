@@ -20,7 +20,10 @@ vim.pack.add({
     'https://github.com/ap/vim-css-color',
     'https://github.com/nvim-tree/nvim-web-devicons',
     'https://github.com/rcarriga/nvim-notify',
-    'https://github.com/nvim-treesitter/nvim-treesitter',
+    {
+        src = 'https://github.com/nvim-treesitter/nvim-treesitter',
+        version = 'master',
+    },
     'https://github.com/nvim-lua/plenary.nvim',
     'https://github.com/folke/todo-comments.nvim',
     -- Widgets

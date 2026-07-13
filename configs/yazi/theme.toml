@@ -1,2 +1,7 @@
 [flavor]
 dark = "gruvbox-dark"
+
+[icon]
+prepend_conds = [
+    { if = "dir", text = "", fg = "#83a598" },
+]

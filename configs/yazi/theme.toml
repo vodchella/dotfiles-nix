@@ -5,3 +5,29 @@ dark = "gruvbox-dark"
 prepend_conds = [
     { if = "dir", text = "", fg = "#83a598" },
 ]
+
+[mode]
+normal_main = { fg = "#282828", bg = "#d79921", bold = true }
+normal_alt  = { fg = "#ebdbb2", bg = "#504945" }
+
+select_main = { fg = "#282828", bg = "#fe8019", bold = true }
+select_alt  = { fg = "#ebdbb2", bg = "#504945" }
+
+unset_main = { fg = "#282828", bg = "#b8bb26", bold = true }
+unset_alt  = { fg = "#ebdbb2", bg = "#504945" }
+
+[status]
+overall = { fg = "#ebdbb2", bg = "#282828" }
+
+sep_left  = { open = "", close = "\ue0b0" }
+sep_right = { open = "\ue0b2", close = "" }
+
+perm_sep   = { fg = "#665c54", bg = "#282828" }
+perm_type  = { fg = "#a89984", bg = "#282828" }
+perm_read  = { fg = "#b8bb26", bg = "#282828" }
+perm_write = { fg = "#fb4934", bg = "#282828" }
+perm_exec  = { fg = "#d79921", bg = "#282828" }
+
+progress_label  = { fg = "#282828", bg = "#d79921", bold = true }
+progress_normal = { fg = "#d79921", bg = "#504945" }
+progress_error  = { fg = "#fb4934", bg = "#504945" }

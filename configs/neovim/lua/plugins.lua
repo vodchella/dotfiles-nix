@@ -36,6 +36,7 @@ vim.pack.add({
     'https://github.com/kdheepak/lazygit.nvim',
     'https://github.com/neogitorg/neogit',
     'https://github.com/stevearc/oil.nvim',
+    'https://github.com/MagicDuck/grug-far.nvim',
     -- LSP and related
     'https://github.com/mfussenegger/nvim-jdtls',
     'https://github.com/williamboman/mason.nvim',
@@ -90,6 +91,7 @@ require('oil').setup {
         end,
     }
 }
+require('grug-far').setup {}
 require('mason').setup {}
 require('mason-tool-installer').setup {
     ensure_installed = {

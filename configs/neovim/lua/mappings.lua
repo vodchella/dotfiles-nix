@@ -3,6 +3,7 @@ local opts = { silent = true }
 local fns = require('functions')
 
 vim.g.mapleader = ' '
+vim.g.maplocalleader = ','
 
 -- Insert mode
 map('i', 'jj',    '<Esc>',     opts)
@@ -79,12 +80,12 @@ map('n', '<leader>cr', vim.lsp.buf.rename,         opts)
 map('n', '<leader>cJ', fns.jdtls_update_project_config, { desc = 'Update JDTLS project configuration' })
 map('x', '<leader>ch', fns.git_history_for_selection,   { desc = 'Git history for selection' })
 map('n', '<leader>lg', '<cmd>LazyGit<cr>', { desc = 'LazyGit' })
-map(
-    'n',
-    '<leader>gg',
-    function() require('neogit').open({ kind = 'floating' }) end,
-    { desc = 'Open Neogit UI' }
-)
+map('n', '<leader>gg', function()
+    require('neogit').open({ kind = 'floating' })
+end, { desc = 'Open Neogit UI' })
+map({ 'n', 'x' }, '<leader>sr', function()
+  require('grug-far').open({ visualSelectionUsage = 'auto-detect' })
+end, { desc = 'grug-far: Search within range' })
 map('n', '<leader>gt', '<cmd>TodoQuickFix<CR>', opts)
 
 -- DAP (отладчик)

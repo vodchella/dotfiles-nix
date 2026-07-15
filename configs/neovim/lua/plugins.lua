@@ -33,7 +33,6 @@ vim.pack.add({
     'https://github.com/vodchella/quicker.nvim',
     'https://github.com/akinsho/bufferline.nvim',
     'https://github.com/tiagovla/scope.nvim',
-    'https://github.com/kdheepak/lazygit.nvim',
     'https://github.com/neogitorg/neogit',
     'https://github.com/stevearc/oil.nvim',
     'https://github.com/MagicDuck/grug-far.nvim',

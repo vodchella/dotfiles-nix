@@ -34,6 +34,7 @@ vim.pack.add({
     'https://github.com/akinsho/bufferline.nvim',
     'https://github.com/tiagovla/scope.nvim',
     'https://github.com/kdheepak/lazygit.nvim',
+    'https://github.com/neogitorg/neogit',
     'https://github.com/stevearc/oil.nvim',
     -- LSP and related
     'https://github.com/mfussenegger/nvim-jdtls',
@@ -76,6 +77,9 @@ require('todo-comments').setup {
 require('quicker').setup {}
 require('bufferline').setup {}
 require('scope').setup {}
+require('neogit').setup {
+    disable_context_highlighting = true,
+}
 require('oil').setup {
     default_file_explorer = true,
     view_options = {

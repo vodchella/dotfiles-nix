@@ -21,6 +21,8 @@ in
   home.sessionVariables = {
     TZ = "Asia/Almaty";
     EDITOR = "nvim";
-    PAGER = "most";
+    PAGER = "nvimpager";
+    GIT_PAGER = "nvimpager";
+    MANPAGER = "nvim +Man!";
   };
 }

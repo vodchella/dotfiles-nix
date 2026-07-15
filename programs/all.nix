@@ -21,9 +21,9 @@
     gcc
     gdu
     lazygit
-    most
     fastfetch
     neovim-remote
+    nvimpager
     openssh
     posting
     ripgrep

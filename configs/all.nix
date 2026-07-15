@@ -59,4 +59,9 @@
     source = ./yazi;
     recursive = true;
   };
+
+  home.file.".config/nvimpager" = {
+    source = ./nvimpager;
+    recursive = true;
+  };
 }

@@ -9,10 +9,10 @@
     lg  = "lazygit";
     nd  = /*fish*/ "nix develop --command fish";
     p   = "run-posting";
-    r   = /*fish*/ "ranger --choosedir=$HOME/.config/ranger/.rangerdir; cd (cat $HOME/.config/ranger/.rangerdir)";
     s   = "serpl";
     v   = "nvim";
     vv  = "nvr -s";
     vr  = "nvr";
+    # r   = /*fish*/ "ranger --choosedir=$HOME/.config/ranger/.rangerdir; cd (cat $HOME/.config/ranger/.rangerdir)";
   };
 }

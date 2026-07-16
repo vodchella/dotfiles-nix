@@ -8,7 +8,6 @@
     ./fzf.nix
     ./neovim.nix
     ./oh-my-posh.nix
-    ./ranger.nix
     ./tmux.nix
     ./zoxide.nix
   ];

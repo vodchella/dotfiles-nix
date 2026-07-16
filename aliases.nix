@@ -6,7 +6,7 @@
     gc  = "cd ${configDir}";
     gp  = /*fish*/ "cd (find ~/projects -mindepth 1 -maxdepth 1 -type d -not -path '*/.git*' | fzf)";
     hms = "home-manager switch";
-    lg  = "lazygit";
+    gg  = "nvim '+Neogit kind=replace'";
     nd  = /*fish*/ "nix develop --command fish";
     p   = "run-posting";
     s   = "serpl";

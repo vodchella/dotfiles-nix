@@ -69,16 +69,26 @@ require('todo-comments').setup {
         keyword = "bg",
         pattern = [[.*<(KEYWORDS)\s*]],
         comments_only = true,
-      },
-      search = {
+    },
+    search = {
         pattern = [[\b(KEYWORDS)\b]],
-      },
+    },
 }
 require('quicker').setup {}
 require('bufferline').setup {}
 require('scope').setup {}
 require('neogit').setup {
     disable_context_highlighting = true,
+    floating = {
+        width = 0.9,
+        height = 0.9,
+    },
+    mappings = {
+        popup = {
+            ["Z"] = false,
+            ["z"] = "StashPopup",
+        }
+    }
 }
 require('oil').setup {
     default_file_explorer = true,

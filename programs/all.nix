@@ -19,7 +19,6 @@
     fontconfig
     gcc
     gdu
-    lazygit
     fastfetch
     neovim-remote
     nvimpager

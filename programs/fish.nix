@@ -29,6 +29,12 @@
       set -gx LANG en_US.UTF-8
       set -gx LC_ALL en_US.UTF-8
 
+      set -gx TZ "Asia/Almaty"
+      set -gx EDITOR "nvim"
+      set -gx PAGER "nvimpager"
+      set -gx GIT_PAGER "nvimpager"
+      set -gx MANPAGER "nvim +Man!"
+
       set -gx PATH $PATH $HOME/.nix-profile/bin /nix/var/nix/profiles/default/bin
       set -gx PATH $PATH $HOME/.local/share/nvim/mason/packages/jdtls/bin/
       set -gx NIX_PATH "nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs"

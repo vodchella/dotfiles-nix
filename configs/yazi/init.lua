@@ -241,13 +241,21 @@ local function update_tmux(status)
     end
 end
 
-Status:children_add(function(status)
-    update_tmux(status)
+local original_tab_layout = Tab.layout
 
-    return ''
-end, 5000, Status.LEFT)
+Tab.layout = function(self, ...)
+    self._area = ui.Rect {
+        x = self._area.x,
+        y = self._area.y,
+        w = self._area.w,
+        h = self._area.h + 1,
+    }
 
-local ok, no_status = pcall(require, 'no-status')
-if ok then
-    no_status:setup()
+    return original_tab_layout(self, ...)
+end
+
+Status.redraw = function(self)
+    update_tmux(self)
+
+    return {}
 end

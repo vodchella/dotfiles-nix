@@ -1,7 +1,5 @@
 [plugin]
-deps = [
-    { use = "yazi-rs/plugins:no-status", rev = "main" },
-]
+deps = []
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:gruvbox-dark"

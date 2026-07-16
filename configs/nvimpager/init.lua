@@ -1,3 +1,5 @@
+nvimpager.maps = false
+
 vim.opt.runtimepath:prepend(vim.fn.expand('~/.config/nvim'))
 require('settings')
 

@@ -1,5 +1,7 @@
 require('vim._core.ui2').enable()
 
+vim.g.tpipeline_autoembed = 0
+
 local set = vim.opt
 
 set.langmap        = 'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz'

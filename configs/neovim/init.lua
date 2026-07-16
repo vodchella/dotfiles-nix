@@ -1,7 +1,7 @@
 -- MUST be the first:
+require("settings")
 require("plugins")
 
-require("settings")
 require("mappings")
 require("statusline")
 require("treesitter")

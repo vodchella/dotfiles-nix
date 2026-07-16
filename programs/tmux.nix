@@ -40,18 +40,20 @@ in
 
       set  -g base-index 1
       setw -g pane-base-index 1
-      set -g renumber-windows on
+      set  -g renumber-windows on
 
       # Общий стиль статусбара
       set-option -g status-position bottom
 
       # Левая часть: hostname зелёным
       # set -g status-left "#[fg=green] #H "
-      set -g status-left " "
+      # set -g status-left " "
+      set -g status-left '#{?#{==:#{pane_current_command},yazi},#{@yazi_left},#{?#{||:#{==:#{pane_current_command},nvim},#{==:#{pane_current_command},vim}},#(cat #{socket_path}-\#{session_id}-vimbridge), }}'
 
       # Правая часть: дата и время
       # set -g status-right "#[fg=yellow]%F #[fg=cyan]#(date +%%H:%%M) "
-      set -g status-right " "
+      # set -g status-right " "
+      set -g status-right '#{?#{==:#{pane_current_command},yazi},#{@yazi_right},#{?#{||:#{==:#{pane_current_command},nvim},#{==:#{pane_current_command},vim}},#(cat #{socket_path}-\#{session_id}-vimbridge-R), }}'
 
       # Обычные (неактивные) окна: белый текст, серый фон
       set -g window-status-format "#[fg=white,bg=black] #I:#W "

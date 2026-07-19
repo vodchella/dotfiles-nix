@@ -33,7 +33,7 @@ map('n', 'ga', '<Plug>(EasyAlign)')
 map('v', 'gA', ':EasyAlign //<Left>')
 
 -- Database
-map('n', '<leader>qq', ':DBUIToggle<CR>', opts)
+-- map('n', '<leader>qq', ':DBUIToggle<CR>', opts)
 
 -- File browser
 map("n", "-", fns.oil_open_float, { desc = 'Open directory' })
@@ -65,6 +65,7 @@ map('v', '<S-J>', ':m \'>+1<CR>gv=gv', opts)
 map('n', '<C-c>', function()
   vim.cmd('call vm#commands#add_cursor_at_pos(0)')
 end, opts)
+map('x', '<C-c>', '<Plug>(VM-Visual-Cursors)^', { remap = true, silent = true })
 
 -- LSP and coding related
 map('n', '<leader>e',  vim.diagnostic.open_float,  opts)

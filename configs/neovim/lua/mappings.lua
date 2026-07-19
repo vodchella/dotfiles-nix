@@ -125,7 +125,9 @@ end
 
 local ok, diffview = pcall(require, 'diffview')
 if ok then
-    map({'n', 'x'}, '<leader>ch', ':DiffviewFileHistory<cr>',  { desc = 'Git history for selection' })
+    map({'x'}, '<leader>ch', ':DiffviewFileHistory<cr>',   { desc = 'Git history for selection' })
+    map({'n'}, '<leader>ch', ':DiffviewFileHistory %<cr>', { desc = 'Git history for current file' })
+    map({'n'}, '<leader>cH', ':DiffviewFileHistory<cr>',   { desc = 'Git history for project' })
     diffview.setup {
         keymaps = {
             view = {

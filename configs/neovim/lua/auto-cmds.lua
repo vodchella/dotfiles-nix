@@ -42,7 +42,6 @@ vim.api.nvim_create_autocmd('FileType', {
     end,
 })
 
-
 vim.cmd [[
   highlight ExtraWhitespace ctermbg=red guibg=red
 

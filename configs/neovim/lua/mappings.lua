@@ -13,9 +13,9 @@ map('i', '<C-k>', '<Up>',      opts)
 map('i', '<C-l>', '<Right>',   opts)
 map('i', '<C-b>', '<C-Left>',  opts)
 map('i', '<C-f>', '<C-Right>', opts)
-map("i", "<C-d>", "<Del>",     opts)
+map('i', '<C-d>', '<Del>',     opts)
 
-map("n", "<Esc>", ":noh<CR>",  opts)
+map('n', '<Esc>', ':noh<CR>',  opts)
 map('x', 'p', [["_dP]], opts)
 
 -- Terminal
@@ -36,7 +36,7 @@ map('v', 'gA', ':EasyAlign //<Left>')
 -- map('n', '<leader>qq', ':DBUIToggle<CR>', opts)
 
 -- File browser
-map("n", "-", fns.oil_open_float, { desc = 'Open directory' })
+map('n', '-', fns.oil_open_float, { desc = 'Open directory' })
 
 -- Comments
 -- <C-/> обозначается в Lua как <C-_>.
@@ -44,11 +44,11 @@ map('n', '<C-_>', fns.comment_lines_n, opts)
 map('v', '<C-_>', fns.comment_lines_v, opts)
 
 -- Tab line
-map("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>",   opts)
-map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opts)
+map('n', '<Tab>',   '<cmd>BufferLineCycleNext<CR>', opts)
+map('n', '<S-Tab>', '<cmd>BufferLineCyclePrev<CR>', opts)
 
 -- Hop (quick jumps)
-map("n", "<C-s>", "<cmd>HopPattern<CR>", opts)
+map('n', '<C-s>', '<cmd>HopPattern<CR>', opts)
 
 -- Hodur
 map('n', '<C-g>', fns.hodur_open_under_cursor, opts)
@@ -79,7 +79,6 @@ map('n', '<leader>gs', '<cmd>DocumentSymbols<cr>', opts)
 map('n', '<leader>ci', fns.lsp_buf_hover,          opts)
 map('n', '<leader>cr', vim.lsp.buf.rename,         opts)
 map('n', '<leader>cJ', fns.jdtls_update_project_config, { desc = 'Update JDTLS project configuration' })
-map('x', '<leader>ch', fns.git_history_for_selection,   { desc = 'Git history for selection' })
 map('n', '<leader>gg', function()
     require('neogit').open({ kind = 'floating' })
 end, { desc = 'Open Neogit UI' })
@@ -124,5 +123,23 @@ if ok then
 })
 end
 
-map("n", '<leader>cl', '<cmd>Linter<cr>', { desc = 'Run linter' })
+local ok, diffview = pcall(require, 'diffview')
+if ok then
+    map({'n', 'x'}, '<leader>ch', ':DiffviewFileHistory<cr>',  { desc = 'Git history for selection' })
+    diffview.setup {
+        keymaps = {
+            view = {
+                {'n', 'q', '<cmd>DiffviewClose<CR>', { desc = 'Close Diffview', },},
+            },
+            file_panel = {
+                {'n', 'q', '<cmd>DiffviewClose<CR>', {  desc = 'Close Diffview', },},
+            },
+            file_history_panel = {
+                {'n', 'q', '<cmd>DiffviewClose<CR>', {  desc = 'Close Diffview', },},
+            },
+        },
+    }
+end
+
+map('n', '<leader>cl', '<cmd>Linter<cr>', { desc = 'Run linter' })
 

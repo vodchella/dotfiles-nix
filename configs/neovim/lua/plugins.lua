@@ -36,6 +36,7 @@ vim.pack.add({
     'https://github.com/neogitorg/neogit',
     'https://github.com/stevearc/oil.nvim',
     'https://github.com/MagicDuck/grug-far.nvim',
+    'https://github.com/sindrets/diffview.nvim',
     -- LSP and related
     'https://github.com/mfussenegger/nvim-jdtls',
     'https://github.com/williamboman/mason.nvim',

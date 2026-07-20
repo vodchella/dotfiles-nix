@@ -1,0 +1,38 @@
+[display]
+show_time = true
+time_format = "%a, %d %b %Y - %H:%M"
+greeting = "Enter the Void!"
+issue = false
+
+[layout]
+width = 70
+window_padding = 1
+container_padding = 1
+prompt_padding = 1
+
+[layout.widgets]
+time_position = "top"
+status_position = "bottom"
+
+[remember]
+username = true
+session = false
+user_session = true
+
+[power]
+use_setsid = false
+
+[secret]
+mode = "characters"  # "hidden" or "characters"
+characters = "*"
+
+[theme]
+border    = "brightblack"
+text      = "yellow"
+prompt    = "green"
+time      = "lightred"
+action    = "cyan"
+button    = "white"
+container = "black"
+input     = "lightgreen"
+

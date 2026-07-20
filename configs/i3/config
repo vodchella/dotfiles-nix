@@ -211,5 +211,6 @@ gaps inner 5
 
 # Startup
 exec_always --no-startup-id "killall -q picom; picom -f"
+exec_always --no-startup-id "killall -q xxkb; xxkb"
 exec_always --no-startup-id feh --bg-scale /home/vodchella/wallpapers/current.jpg
 

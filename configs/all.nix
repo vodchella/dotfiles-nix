@@ -5,6 +5,10 @@
     source = ./.ideavimrc;
   };
 
+  home.file.".xxkbrc" = {
+    source = ./.xxkbrc;
+  };
+
   home.file.".gdu.yaml" = {
     source = ./.gdu.yaml;
   };

@@ -13,8 +13,14 @@
     source = ./.gdu.yaml;
   };
 
-  home.file.".config/regolith3/picom/config" = {
-    source = ./picom/config;
+  home.file.".config/regolith3/picom" = {
+    source = ./picom;
+    recursive = true;
+  };
+
+  home.file.".config/picom" = {
+    source = ./picom;
+    recursive = true;
   };
 
   home.file.".config/udiskie/config.yml" = {

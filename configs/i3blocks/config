@@ -1,0 +1,32 @@
+command=$HOME/.config/i3blocks/scripts/$BLOCK_NAME
+markup=pango
+separator=true
+separator_block_width=24
+color=#ebdbb2
+
+[focused-window-name]
+interval=1
+
+[keyboard-layout]
+interval=1
+
+[cpu-usage]
+interval=5
+min_width=CPU 100%
+
+[memory]
+interval=10
+min_width=RAM 100%
+
+[battery]
+interval=10
+
+[wireguard]
+interval=5
+
+[volume]
+interval=5
+signal=10
+
+[time]
+interval=10

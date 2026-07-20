@@ -1,0 +1,8 @@
+#!/bin/sh
+active='#8ec07c'; inactive='#928374'; interface=${BLOCK_INSTANCE:-wg0}; state='down'
+if [ -r "/sys/class/net/$interface/operstate" ]; then state=$(cat "/sys/class/net/$interface/operstate")
+elif command -v ip >/dev/null 2>&1 && ip link show dev "$interface" >/dev/null 2>&1; then state='unknown'; fi
+case "$state" in
+    up|unknown) printf '<span foreground="%s">󰖂</span> <span foreground="%s">%s</span>\n' "$active" "$active" "$interface" ;;
+    *) printf '<span foreground="%s">󰖂</span> <span foreground="%s">%s</span>\n' "$inactive" "$inactive" "$interface" ;;
+esac

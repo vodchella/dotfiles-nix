@@ -1,0 +1,4 @@
+#!/bin/sh
+label='#d79921'; value='#ebdbb2'
+date_part=$(date '+%a %d %b'); time_part=$(date '+%H:%M')
+printf '<span foreground="%s"></span> <span foreground="%s">%s</span>  <span foreground="%s"></span> <span foreground="%s">%s</span>\n' "$label" "$value" "$date_part" "$label" "$value" "$time_part"

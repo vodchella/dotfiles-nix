@@ -1,0 +1,19 @@
+#!/bin/sh
+label='#d79921'; normal='#ebdbb2'; muted='#928374'
+refresh() { pkill -RTMIN+10 i3blocks 2>/dev/null || true; }
+if command -v wpctl >/dev/null 2>&1; then
+    case "${BLOCK_BUTTON:-}" in 1) wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle ;; 4) wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+ ;; 5) wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- ;; esac
+    [ -z "${BLOCK_BUTTON:-}" ] || refresh
+    output=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ 2>/dev/null)
+    volume=$(printf '%s\n' "$output" | awk '{printf "%d",$2*100}')
+    case "$output" in *MUTED*) icon='󰝟'; color=$muted ;; *) color=$normal; if [ "${volume:-0}" -eq 0 ]; then icon='󰕿'; elif [ "${volume:-0}" -lt 50 ]; then icon='󰖀'; else icon='󰕾'; fi ;; esac
+elif command -v pactl >/dev/null 2>&1; then
+    case "${BLOCK_BUTTON:-}" in 1) pactl set-sink-mute @DEFAULT_SINK@ toggle ;; 4) pactl set-sink-volume @DEFAULT_SINK@ +5% ;; 5) pactl set-sink-volume @DEFAULT_SINK@ -5% ;; esac
+    [ -z "${BLOCK_BUTTON:-}" ] || refresh
+    volume=$(pactl get-sink-volume @DEFAULT_SINK@ 2>/dev/null | awk 'NR==1 {gsub(/%/,"",$5); print $5}')
+    mute=$(pactl get-sink-mute @DEFAULT_SINK@ 2>/dev/null | awk '{print $2}')
+    if [ "$mute" = yes ]; then icon='󰝟'; color=$muted; else color=$normal; if [ "${volume:-0}" -eq 0 ]; then icon='󰕿'; elif [ "${volume:-0}" -lt 50 ]; then icon='󰖀'; else icon='󰕾'; fi; fi
+else
+    printf '<span foreground="%s">󰕾</span> <span foreground="%s">?</span>\n' "$label" "$muted"; exit 0
+fi
+printf '<span foreground="%s">%s</span> <span foreground="%s">%s%%</span>\n' "$label" "$icon" "$color" "${volume:-0}"

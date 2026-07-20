@@ -1,0 +1,22 @@
+#!/bin/sh
+label='#d79921'; normal='#ebdbb2'; charging='#b8bb26'; warning='#fe8019'; critical='#fb4934'
+battery=''
+if [ -n "${BLOCK_INSTANCE:-}" ] && [ -d "/sys/class/power_supply/$BLOCK_INSTANCE" ]; then
+    battery="/sys/class/power_supply/$BLOCK_INSTANCE"
+else
+    for candidate in /sys/class/power_supply/BAT*; do [ -d "$candidate" ] && { battery=$candidate; break; }; done
+fi
+[ -n "$battery" ] || exit 0
+capacity=$(cat "$battery/capacity" 2>/dev/null); status=$(cat "$battery/status" 2>/dev/null)
+[ -n "$capacity" ] || exit 0
+case "$status" in
+    Charging) icon='󰂄'; color=$charging ;;
+    Full) icon='󰁹'; color=$charging ;;
+    *)
+        if [ "$capacity" -le 10 ]; then icon='󰁺'; color=$critical
+        elif [ "$capacity" -le 25 ]; then icon='󰁻'; color=$warning
+        elif [ "$capacity" -le 50 ]; then icon='󰁾'; color=$normal
+        elif [ "$capacity" -le 75 ]; then icon='󰂀'; color=$normal
+        else icon='󰁹'; color=$normal; fi ;;
+esac
+printf '<span foreground="%s">%s</span> <span foreground="%s">%s%%</span>\n' "$label" "$icon" "$color" "$capacity"

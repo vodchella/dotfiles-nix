@@ -30,6 +30,11 @@
     recursive = true;
   };
 
+  home.file.".config/i3blocks" = {
+    source = ./i3blocks;
+    recursive = true;
+  };
+
   # home.file.".config/oh-my-posh" = {
   #   source = ./oh-my-posh;
   #   recursive = true;

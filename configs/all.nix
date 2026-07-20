@@ -18,9 +18,8 @@
     recursive = true;
   };
 
-  home.file.".config/picom" = {
-    source = ./picom;
-    recursive = true;
+  home.file.".config/picom.conf" = {
+    source = ./picom/config;
   };
 
   home.file.".config/udiskie/config.yml" = {

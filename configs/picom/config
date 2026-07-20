@@ -200,7 +200,8 @@ detect-transient = true;
 detect-client-leader = true;
 
 # Prevent shadows from drawing across displays.
-xinerama-shadow-crop = true;
+# xinerama-shadow-crop = true;
+crop-shadow-to-monitor = true;
 
 #################################
 #

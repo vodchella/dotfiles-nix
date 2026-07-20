@@ -35,6 +35,11 @@
     recursive = true;
   };
 
+  home.file.".config/rofi" = {
+    source = ./rofi;
+    recursive = true;
+  };
+
   # home.file.".config/oh-my-posh" = {
   #   source = ./oh-my-posh;
   #   recursive = true;

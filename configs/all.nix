@@ -13,6 +13,11 @@
     source = ./.gdu.yaml;
   };
 
+  home.file.".config/X11" = {
+    source = ./X11;
+    recursive = true;
+  };
+
   home.file.".config/i3" = {
     source = ./i3;
     recursive = true;

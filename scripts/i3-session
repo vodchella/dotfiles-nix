@@ -1,0 +1,5 @@
+#!/bin/sh
+
+. /home/vodchella/.config/X11/session.sh
+exec i3
+

@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=i3
+Comment=Improved dynamic tiling window manager
+Exec=/home/vodchella/.local/bin/i3-session
+Type=Application

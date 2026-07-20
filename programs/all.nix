@@ -30,6 +30,7 @@
     tldr
     unzip
     xclip
+    xkblayout-state
     yazi
   ];
 

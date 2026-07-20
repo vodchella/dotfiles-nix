@@ -13,6 +13,11 @@
     source = ./.gdu.yaml;
   };
 
+  home.file.".config/i3" = {
+    source = ./i3;
+    recursive = true;
+  };
+
   home.file.".config/regolith3/picom" = {
     source = ./picom;
     recursive = true;

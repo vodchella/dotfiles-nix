@@ -12,11 +12,9 @@ interval=1
 
 [cpu-usage]
 interval=5
-min_width=CPU 100%
 
 [memory]
 interval=10
-min_width=RAM 100%
 
 [battery]
 interval=10

@@ -57,12 +57,14 @@
       end
 
       if not set -q TMUX
-        if set -q RUN_TMUX_ON_FISH_STARTUP; and test "$RUN_TMUX_ON_FISH_STARTUP" = "1"
-          if test -x /usr/bin/tmux
-              exec /usr/bin/tmux
-          else
-              exec tmux
-          end
+        and set -q RUN_TMUX_ON_FISH_STARTUP
+        and test "$RUN_TMUX_ON_FISH_STARTUP" = "1"
+        and set -q DISPLAY
+
+        if test -x /usr/bin/tmux
+          exec /usr/bin/tmux
+        else
+          exec tmux
         end
       end
 

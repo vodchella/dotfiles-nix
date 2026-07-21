@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# sudo xbps-install -S kvantum
+export QT_STYLE_OVERRIDE=kvantum
+
 xxkb &
 pipewire &
 wireplumber &

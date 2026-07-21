@@ -32,6 +32,11 @@
     source = ./picom/config;
   };
 
+  home.file.".config/flameshot" = {
+    source = ./flameshot;
+    recursive = true;
+  };
+
   home.file.".config/udiskie/config.yml" = {
     source = ./udiskie.yml;
   };

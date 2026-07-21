@@ -37,6 +37,11 @@
     recursive = true;
   };
 
+  home.file.".config/Kvantum" = {
+    source = ./Kvantum;
+    recursive = true;
+  };
+
   home.file.".config/udiskie/config.yml" = {
     source = ./udiskie.yml;
   };

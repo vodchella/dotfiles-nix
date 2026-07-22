@@ -1,12 +1,12 @@
 #!/bin/sh
+
 label='#d79921'
 value='#ebdbb2'
-if command -v xkb-switch >/dev/null 2>&1; then
-    layout=$(xkb-switch -p 2>/dev/null)
-elif command -v xkblayout-state >/dev/null 2>&1; then
-    layout=$(xkblayout-state print '%s' 2>/dev/null)
-else
-    layout=$(setxkbmap -query 2>/dev/null | awk '$1 == "layout:" { print $2 }' | cut -d, -f1)
-fi
+
+layout=$(xkblayout-state print '%s' 2>/dev/null)
 [ -n "$layout" ] || layout='?'
-printf '<span foreground="%s"></span> <span foreground="%s">%s</span>\n' "$label" "$value" "$layout"
+
+printf '<span foreground="%s"></span> <span foreground="%s">%s</span>\n' \
+    "$label" \
+    "$value" \
+    "$layout"

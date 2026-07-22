@@ -13,6 +13,8 @@
     v   = "nvim";
     vv  = "nvr -s";
     vr  = "nvr";
+    reboot   = "sudo reboot";
+    poweroff = "sudo poweroff";
     # r   = /*fish*/ "ranger --choosedir=$HOME/.config/ranger/.rangerdir; cd (cat $HOME/.config/ranger/.rangerdir)";
   };
 }

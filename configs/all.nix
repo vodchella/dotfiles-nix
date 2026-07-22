@@ -13,8 +13,20 @@
     source = ./.gdu.yaml;
   };
 
-  home.file.".config/X11" = {
-    source = ./X11;
+  home.file.".config/X11/session.sh" = {
+    source = ./X11/session.sh;
+  };
+
+  home.file.".xinitrc" = {
+    source = ./X11/.xinitrc;
+  };
+
+  home.file.".Xresources" = {
+    source = ./X11/.Xresources;
+  };
+
+  home.file.".icons" = {
+    source = ./icons;
     recursive = true;
   };
 

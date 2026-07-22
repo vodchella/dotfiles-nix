@@ -96,10 +96,10 @@
     recursive = true;
   };
 
-  # home.file.".config/oh-my-posh" = {
-  #   source = ./oh-my-posh;
-  #   recursive = true;
-  # };
+  home.file.".config/pipewire/pipewire.conf.d" = {
+    source = ./pipewire;
+    recursive = true;
+  };
 
   home.file.".config/fish/functions" = {
     source = ./fish/functions;

@@ -13,16 +13,25 @@ sudo sv up greetd
 
 Write to `/etc/sudoers.d/tuigreet`:
 ```
-_greeter ALL=(root) NOPASSWD: /usr/bin/loginctl poweroff
-_greeter ALL=(root) NOPASSWD: /usr/bin/loginctl reboot
+_greeter ALL=(root) NOPASSWD: /usr/sbin/poweroff
+_greeter ALL=(root) NOPASSWD: /usr/bin/poweroff
+_greeter ALL=(root) NOPASSWD: /usr/sbin/reboot
+_greeter ALL=(root) NOPASSWD: /usr/bin/reboot
 ```
 
-Copy `./config.toml` to `/etc/tuigreet/config.toml`
-Copy `../greetd/config.toml` to `/etc/greetd/config.toml`
-Copy `../i3/i3.desktop` to `/usr/share/xsessions/i3.desktop`
+```bash
+sudo mkdir /etc/tuigreet
+sudo cp config.toml /etc/tuigreet/config.toml
+sudo cp ../greetd/config.toml /etc/greetd/config.toml
+sudo cp ../i3/i3.desktop /usr/share/xsessions/i3.desktop
+```
 
 If `elogind is already running` errors appear on the login screen, run:
 ```bash
 sudo sv down elogind
 sudo rm /etc/runit/runsvdir/default/elogind
+```
+If some strange behavior:
+```bash
+sudo rm /etc/runit/runsvdir/default/agetty-tty1
 ```

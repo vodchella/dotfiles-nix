@@ -3,4 +3,4 @@ vt = 1
 
 [default_session]
 user = "_greeter"
-command = "tuigreet --config /etc/tuigreet/config.toml --power-shutdown 'sudo /usr/bin/loginctl poweroff' --power-reboot 'sudo /usr/bin/loginctl reboot'"
+command = "tuigreet --config /etc/tuigreet/config.toml --power-shutdown 'sudo /usr/bin/poweroff' --power-reboot 'sudo /usr/bin/reboot'"

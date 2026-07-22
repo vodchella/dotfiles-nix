@@ -1,5 +1,11 @@
 #!/bin/sh
 
+eval "$(ssh-agent -s)"
+ssh-add "$HOME/.ssh/github"
+ssh-add "$HOME/.ssh/vpn-srv"
+
+export SSH_AUTH_SOCK
+export SSH_AGENT_PID
 export QT_STYLE_OVERRIDE=kvantum
 export XCURSOR_THEME=Oxygen-White
 export XCURSOR_SIZE=24

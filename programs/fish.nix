@@ -68,15 +68,6 @@
         end
       end
 
-      if not pgrep -u (id -u) ssh-agent > /dev/null
-        eval (ssh-agent -c) >/dev/null
-      end
-
-      if not ssh-add -l | grep -q github
-        ssh-add ~/.ssh/github >/dev/null 2>&1
-        ssh-add ~/.ssh/vpn-srv >/dev/null 2>&1
-      end
-
       fish_vi_key_bindings
     '';
   };

@@ -3,13 +3,17 @@
 label='#d79921'
 value='#ebdbb2'
 
+sanitize_utf8()
+{
+    iconv -f UTF-8 -t UTF-8 -c
+}
+
 escape_pango()
 {
-    printf '%s' "$1" |
-        sed \
-            -e 's/&/\&amp;/g' \
-            -e 's/</\&lt;/g' \
-            -e 's/>/\&gt;/g'
+    sed \
+        -e 's/&/\&amp;/g' \
+        -e 's/</\&lt;/g' \
+        -e 's/>/\&gt;/g'
 }
 
 window_id=$(
@@ -21,22 +25,42 @@ window_id=$(
 [ "$window_id" != '0x0' ] || exit 0
 
 title=$(
-    xprop -id "$window_id" _NET_WM_NAME WM_NAME 2>/dev/null |
-        sed -n \
-            -e 's/^_NET_WM_NAME([^)]*) = "\(.*\)"$/\1/p' \
-            -e 's/^WM_NAME([^)]*) = "\(.*\)"$/\1/p' |
+    xprop -id "$window_id" _NET_WM_NAME 2>/dev/null |
+        sed -n 's/^_NET_WM_NAME([^)]*) = "\(.*\)"$/\1/p' |
         head -n 1 |
-        iconv -f UTF-8 -t UTF-8//IGNORE 2>/dev/null
+        sanitize_utf8
 )
+
+if [ -z "$title" ]; then
+    title=$(
+        xprop -id "$window_id" WM_NAME 2>/dev/null |
+            sed -n 's/^WM_NAME([^)]*) = "\(.*\)"$/\1/p' |
+            head -n 1 |
+            sanitize_utf8
+    )
+fi
 
 [ -n "$title" ] || exit 0
 
-title=$(escape_pango "$title")
+short_title=$(
+    printf '%s\n' "$title" |
+        LC_ALL=en_US.UTF-8 awk '{ print substr($0, 1, 30) }' |
+        sanitize_utf8
+)
+
+escaped_title=$(
+    printf '%s' "$title" |
+        escape_pango
+)
+
+escaped_short_title=$(
+    printf '%s' "$short_title" |
+        escape_pango
+)
 
 printf '<span foreground="%s"></span> <span foreground="%s">%s</span>\n' \
     "$label" \
     "$value" \
-    "$title"
+    "$escaped_title"
 
-printf '%s\n' "$title" |
-    cut -c 1-30
+printf '%s\n' "$escaped_short_title"

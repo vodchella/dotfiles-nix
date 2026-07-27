@@ -30,6 +30,11 @@
     recursive = true;
   };
 
+  home.file.".config/zathura" = {
+    source = ./zathura;
+    recursive = true;
+  };
+
   home.file.".config/i3" = {
     source = ./i3;
     recursive = true;

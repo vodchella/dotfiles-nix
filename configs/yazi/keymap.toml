@@ -9,4 +9,6 @@ prepend_keymap = [
 
     { on = [ "g", "c" ], run = "cd ~/.config/home-manager",     desc = "Go to config" },
     { on = [ "g", "p" ], run = "cd ~/projects",                 desc = "Go to projects" },
+
+    { on = ["W"], run = "shell 'feh --bg-fill \"$@\"'",         desc = "Set wallpaper"},
 ]

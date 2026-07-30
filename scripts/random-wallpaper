@@ -1,0 +1,8 @@
+#!/bin/sh
+
+feh --bg-fill "$(
+    find ~/wallpapers \
+        -type f \
+        \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' \) |
+    shuf -n1
+)"

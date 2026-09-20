@@ -21,6 +21,9 @@ xrdb -merge "$HOME/.Xresources"
 
 xxkb &
 pipewire &
+while [ ! -S "$XDG_RUNTIME_DIR/pipewire-0" ]; do
+    sleep 0.1
+done
 wireplumber &
 
 setxkbmap \

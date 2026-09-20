@@ -31,6 +31,8 @@ bindsym $mod+space exec --no-startup-id rofi -show drun
 # kill focused window
 bindsym $mod+Shift+q kill
 
+bindsym $mod+Ctrl+l exec --no-startup-id sudo tuilock
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
